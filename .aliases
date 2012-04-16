@@ -1,0 +1,107 @@
+# List only directories
+alias lsd='ls -l | grep "^d"'
+
+alias cd..="cd .."
+alias c="clear"
+alias e="exit"
+alias ..="cd .."
+
+alias sqlite="sqlite3"
+
+# Enable tap to click (Trackpad)
+alias enable-tap-to-click="defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true"
+
+# Undo a `git push`
+alias git-undopush="git push -f origin HEAD^:master"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Empty the Trash on all mounted volumes and the main HDD
+# Also, clear Apple’s System Logs to improve shell startup speed
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+# Show/hide hidden files in Finder
+alias show-hidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hide-hidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hide-desktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias show-desktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Enable/disable Spotlight
+alias spot-off="sudo mdutil -a -i off"
+alias spot-on="sudo mdutil -a -i on"
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 10'"
+alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+# SSH Aliases
+alias ssh-sanger="ssh -l do2 ssh.sanger.ac.uk"
+alias ssh-gtrap1a="ssh -p 10022 -l do2 localhost"
+alias ssh-htgt="ssh -p 10025 -l do2 localhost"
+alias ssh-htgt-with-x="ssh -X -C -p 10025 -l do2 localhost"
+alias ssh-htgt-web="ssh -p 10026 -l do2 localhost"
+alias ssh-htgt-web-with-x="ssh -X -C -p 10026 -l do2 localhost"
+alias ssh-cbi4="ssh -p 10023 -l do2 localhost"
+alias ssh-farm="ssh -p 1024 -l do2 localhost"
+alias ssh-etch-dev64="ssh -p 10027 -l do2 localhost"
+alias ssh-t87-mongodb="ssh -p 10028 -l do2 localhost"
+alias team87-gtrap1a="ssh -p 10022 -l team87 localhost"
+alias team87-htgt="ssh -p 10025 -l team87 localhost"
+alias team87-htgt-web="ssh -p 10026 -l team87 localhost"
+alias team87-etch-dev64="ssh -p 10027 -l team87 localhost"
+alias team87-t87-mongodb="ssh -p 10028 -l team87 localhost"
+
+alias ssh-idcc-devel="ssh -l darren.oakley -p 54321 -X -L 33306:localhost:3306 idcc-devel.helmholtz-muenchen.de"
+alias ssh-biomart-idcc-devel="ssh -l biomart -p 54321 -L 33306:localhost:3306 idcc-devel.helmholtz-muenchen.de"
+
+alias ssh-ikmc-vm="ssh do2@ikmc.vm.bytemark.co.uk"
+alias rsync-ikmc-vm-conf="rsync -arcv --exclude .svn ~/projects/conf-ikmc.vm.bytemark.co.uk/ ikmc.vm.bytemark.co.uk:conf/"
+
+alias ssh-hocuspokus="ssh -l admin hocuspokus.vm.bytemark.co.uk"
+alias ssh-hocuspokus-admin="ssh hocuspokus@hocuspokus.vmadmin.bytemark.co.uk"
+
+##
+## Services
+##
+
+alias mysql-start="mysql.server start"
+alias mysql-stop="mysql.server stop"
+
+alias postgres-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias postgres-stop="pg_ctl -D /usr/local/var/postgres stop"
+
+alias apache-start="sudo apachectl start"
+alias apache-stop="sudo apachectl stop"
+
+alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
+
+alias jenkins-start="launchctl load -w /usr/local/Cellar/jenkins/1.447/org.jenkins-ci.plist"
+alias jenkins-stop="launchctl unload -w /usr/local/Cellar/jenkins/1.447/org.jenkins-ci.plist"
+
+alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.4.8/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.4.8/homebrew.mxcl.redis.plist"
+

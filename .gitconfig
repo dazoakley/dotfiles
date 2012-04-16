@@ -1,0 +1,28 @@
+[user]
+	name = Darren Oakley
+	email = daz.oakley@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+[merge]
+	tool = opendiff
+	summary = true
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[push]
+	default = matching
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

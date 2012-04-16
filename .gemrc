@@ -1,0 +1,7 @@
+---
+:update_sources: true
+gemcutter_key: 366e053d14decf027992b4609ba7a7f1
+:bulk_threshold: 1000
+:sources:
+- http://rubygems.org
+gem: --no-ri --no-rdoc --no-http-proxy

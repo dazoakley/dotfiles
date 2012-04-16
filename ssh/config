@@ -1,0 +1,69 @@
+Host *.nature.com
+  User doakley
+
+  Compression yes
+  ForwardX11 no
+  ForwardAgent true
+
+Host ssh.sanger.ac.uk
+  User do2
+
+  Compression yes
+  ForwardX11 no
+  ForwardAgent true
+
+  LocalForward 14301 imapproxy.internal.sanger.ac.uk:143
+  LocalForward 38901 ldap.internal.sanger.ac.uk:389
+  LocalForward 25001 mail.sanger.ac.uk:25
+  LocalForward 3128  wwwcache.sanger.ac.uk:3128
+  LocalForward 22001 svn.internal.sanger.ac.uk:22
+
+  # Oracle Servers
+    # esmp / esmt
+    LocalForward 1801 ocs22a-vip.internal.sanger.ac.uk:1521
+    LocalForward 1802 ocs22b-vip.internal.sanger.ac.uk:1521
+    LocalForward 1803 ocs22c-vip.internal.sanger.ac.uk:1521
+    LocalForward 1804 ocs22d-vip.internal.sanger.ac.uk:1521
+
+    # migp_ha
+    LocalForward 1805 ocs9a.internal.sanger.ac.uk:1521
+    LocalForward 1806 ocs9a.internal.sanger.ac.uk:1525
+
+  # PostgreSQL Servers
+  LocalForward 5433 imits-db.internal.sanger.ac.uk:5433
+  LocalForward 5434 imits-db.internal.sanger.ac.uk:5434
+  LocalForward 5435 pgsrv1.internal.sanger.ac.uk:5435
+
+  # MySQL Servers
+  LocalForward 13301 web-mei-varp.internal.sanger.ac.uk:3308
+  LocalForward 13304 mcs4a.internal.sanger.ac.uk:3307
+  LocalForward 13305 mcs4a.internal.sanger.ac.uk:3308
+  LocalForward 13306 web-mei-t87p.internal.sanger.ac.uk:3334
+
+  # SSH Logins
+  LocalForward 10022 gtrap1a.internal.sanger.ac.uk:22
+  LocalForward 10023 cbi4.internal.sanger.ac.uk:22
+  LocalForward 10024 farm-login.internal.sanger.ac.uk:22
+  LocalForward 10025 htgt.internal.sanger.ac.uk:22
+  LocalForward 10026 htgt-web.internal.sanger.ac.uk:22
+  LocalForward 10027 etch-dev64.internal.sanger.ac.uk:22
+  LocalForward 10028 t87-mongodb.internal.sanger.ac.uk:22
+
+  # Windows Boxes
+  LocalForward 33301  tmsrv6.internal.sanger.ac.uk:3389
+  LocalForward 33302  tmsrv7.internal.sanger.ac.uk:3389
+  LocalForward 33303  tmsrv8.internal.sanger.ac.uk:3389
+
+  # MongoDB
+  LocalForward 27018 t87-mongodb.internal.sanger.ac.uk:27017
+
+  # SOCKS Proxy
+  DynamicForward 9999
+
+Host hocuspokus.vm.bytemark.co.uk
+  User admin
+  Compression yes
+  ForwardX11 no
+  ForwardAgent true
+
+  DynamicForward 7777
