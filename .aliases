@@ -105,3 +105,6 @@ alias jenkins-stop="launchctl unload -w /usr/local/Cellar/jenkins/1.447/org.jenk
 alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.4.8/homebrew.mxcl.redis.plist"
 alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.4.8/homebrew.mxcl.redis.plist"
 
+alias tor-start="launchctl load -w /usr/local/Cellar/tor/0.2.2.35/homebrew.mxcl.tor.plist"
+alias tor-stop="launchctl unload -w /usr/local/Cellar/tor/0.2.2.35/homebrew.mxcl.tor.plist"
+
