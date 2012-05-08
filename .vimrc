@@ -234,7 +234,6 @@ let g:syntastic_auto_loc_list=1                   " Error window auto closes whe
 
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
-let NERDTreeShowBookmarks=1     " Show the bookmarks table on startup
 
 " delimitMate
 let delimitMate_expand_space = 1                  " expand <space> inside empty delimiters
