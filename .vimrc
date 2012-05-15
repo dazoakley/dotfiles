@@ -221,7 +221,7 @@ filetype plugin indent on       " load the plugin and indent settings for the de
 if has('gui_running')
   " colorscheme sexy-railscasts
   set background=light
-  colorscheme solarized
+  colorscheme macvim
 else
   colorscheme sahara
 endif
