@@ -5,6 +5,8 @@ Host *.nature.com
   ForwardX11 no
   ForwardAgent true
 
+  LocalForward 3890 it-ldap1.nature.com:389
+
 Host ssh.sanger.ac.uk
   User do2
 

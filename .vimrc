@@ -145,7 +145,8 @@ au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.pp set ft=puppet
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile *.yml.* set ft=yaml
-au BufNewFile,BufReadPost *.coffee set foldmethod=indent ft=coffee
+au BufRead,BufNewFile *.coffee set foldmethod=indent ft=coffee
+au BufRead,BufNewFile *.mustache set foldmethod=indent ft=mustache
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
@@ -207,6 +208,7 @@ Bundle 'VimClojure'
 Bundle 'jpalardy/vim-slime'
 Bundle 'dharanasoft/rtf-highlight'
 Bundle 'greyblake/vim-preview'
+Bundle 'juvenn/mustache.vim'
 
 " all this for snipmate
 Bundle 'MarcWeber/vim-addon-mw-utils'
