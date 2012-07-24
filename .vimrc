@@ -94,7 +94,7 @@ set foldnestmax=5                         " max detpth of folding
 " remember last location in file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+        \| exe "normal g'\"" | endif
 endif
 
 " text wrapping
@@ -221,11 +221,11 @@ filetype on                     " enable vim filetype detection
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
 
 if has('gui_running')
-  " colorscheme sexy-railscasts
   set background=light
   colorscheme macvim
 else
-  colorscheme sahara
+  set background=dark
+  colorscheme molokai
 endif
 
 " Syntastic
@@ -260,12 +260,4 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
 
