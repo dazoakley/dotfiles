@@ -16,7 +16,6 @@ set showmatch
 set virtualedit=block
 set scrolloff=4                 " set how many lines to keep around the cursor
 set encoding=utf-8
-set cpoptions+=$                " show $ sign when changing
 set mouse=a                     " enable the mouse in xterm
 set history=1000                " how many lines of history to remember
 set showmode                    " show the mode we're currently in
@@ -186,23 +185,19 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'sexy-railscasts'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ddollar/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'Raimondi/delimitMate'
+Bundle 'matchit.zip'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ack.vim'
 Bundle 'sontek/minibufexpl.vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'nginx.vim'
-Bundle 'Rubytest.vim'
-Bundle 'ctags.vim'
 Bundle 'kogent/vim-puppet'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-liquid'
 Bundle 'tpope/vim-markdown'
@@ -227,27 +222,14 @@ else
   colorscheme molokai
 endif
 
-" Syntastic
-let g:syntastic_enable_signs=1                    " Use sign interface to mark errors
-let g:syntastic_auto_loc_list=1                   " Error window auto closes when no errors, also auto opens when errors found
-" let g:syntastic_check_on_open=1
-" let g:syntastic_disabled_filetypes = ['eruby.html']
-
-" Nerdtree
-map <F2> :NERDTreeToggle<CR>
-
-" delimitMate
-let delimitMate_expand_space = 1                  " expand <space> inside empty delimiters
-let delimitMate_expand_cr = 1                     " expand <cr> inside empty delimiters
-
-" Rubytest
-map <Leader>. <Plug>RubyTestRun                   " change from <Leader>t to <Leader>.
+" vim-preview
+nmap <Leader>P :Preview<CR>
 
 " RTF Highlight
 let g:rtfh_theme = 'molokai'
 
-" vim-preview
-nmap <Leader>P :Preview<CR>
+" Nerdtree
+map <F2> :NERDTreeToggle<CR>
 
 " ###########################################################
 " CUSTOM MAPPINGS / COMMANDS
