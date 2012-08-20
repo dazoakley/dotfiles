@@ -45,6 +45,7 @@ Bundle 'dharanasoft/rtf-highlight'
 Bundle 'greyblake/vim-preview'
 Bundle 'juvenn/mustache.vim'
 
+filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
 
 " disable modelines
@@ -98,7 +99,7 @@ set nostartofline
 set cursorline
 set showmatch
 set virtualedit=block
-set showtabline=2
+set showtabline=0
 set nowrap
 
 if has("gui_macvim")
@@ -123,6 +124,9 @@ set term=xterm-256color         " give me more colors
 set hlsearch
 set incsearch
 set showmatch
+
+" This unsets the "last search pattern" register by hitting return
+noremap <CR> :noh<CR><CR>
 
 " tab completion for files
 set wildmenu
