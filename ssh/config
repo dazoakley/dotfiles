@@ -70,3 +70,13 @@ Host hocuspokus.vm.bytemark.co.uk
   ForwardAgent true
 
   DynamicForward 7777
+
+Host heroku.letsdobeer
+  HostName heroku.com
+  IdentityFile "/Users/d.oakley/.ssh/id_rsa"
+  IdentitiesOnly yes
+
+Host heroku.personal
+  HostName heroku.com
+  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.personal"
+  IdentitiesOnly yes
