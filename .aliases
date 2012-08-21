@@ -14,6 +14,9 @@ alias enable-tap-to-click="defaults write com.apple.driver.AppleBluetoothMultito
 # Undo a `git push`
 alias git-undopush="git push -f origin HEAD^:master"
 
+# Get a pretty git log
+alias git-log="git log --decorate --graph --oneline"
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
