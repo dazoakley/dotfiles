@@ -1,4 +1,6 @@
 # List only directories
+alias l='ls -lha'
+alias ll='ls -lh'
 alias lsd='ls -l | grep "^d"'
 
 alias cd..="cd .."
