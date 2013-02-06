@@ -6,6 +6,7 @@ Host *.nature.com
   ForwardAgent true
 
   LocalForward 3890 it-ldap1.nature.com:389
+  LocalForward 8003 192.168.88.102:8003
   DynamicForward 5555
 
 Host *.npgsrv.com
