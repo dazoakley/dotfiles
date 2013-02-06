@@ -105,3 +105,10 @@ if [[ -d "$HOME/.rbenv" ]]; then
   eval "$(rbenv init -)"
 fi
 
+## VIM
+
+if [ $VIM ]; then
+  export PS1='[VIM]\h:\w\$ '
+  unset LS_OPTIONS
+fi
+
