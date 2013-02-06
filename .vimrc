@@ -21,7 +21,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'matchit.zip'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ack.vim'
 Bundle 'sontek/minibufexpl.vim'
@@ -34,13 +33,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-liquid'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-Bundle 'VimClojure'
-Bundle 'jpalardy/vim-slime'
 Bundle 'dharanasoft/rtf-highlight'
 Bundle 'greyblake/vim-preview'
 Bundle 'juvenn/mustache.vim'
@@ -182,12 +177,6 @@ set foldnestmax=5                         " max detpth of folding
 " zc - Close the fold that the cursor is inside
 " zR - Open all folds
 " zM - Close all folds
-
-" remember last location in file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal g'\"" | endif
-endif
 
 " remove trailing whitespace automatically
 autocmd BufWritePre * :%s/\s\+$//e
