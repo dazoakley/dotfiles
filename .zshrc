@@ -43,8 +43,10 @@ bindkey "^[[1;9D" backward-word
 bindkey "^[[1;9C" forward-word
 
 # git
-source /usr/local/etc/bash_completion.d/git-completion.bash
 git(){ hub "$@" }
+
+# zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # RVM / RBENV
 if [[ -d "$HOME/.rvm" ]]; then
