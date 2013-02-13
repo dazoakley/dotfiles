@@ -41,6 +41,7 @@ Bundle 'greyblake/vim-preview'
 Bundle 'juvenn/mustache.vim'
 Bundle 'jimmyhchan/dustjs.vim'
 Bundle 'rkitover/perl-vim-mxd'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
@@ -109,8 +110,8 @@ if has('gui_running')
   set background=light
   colorscheme macvim
 else
-  set background=dark
-  colorscheme molokai
+  set background=light
+  colorscheme solarized
 endif
 
 set mouse=a                     " enable the mouse in xterm
