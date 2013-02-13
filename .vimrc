@@ -100,11 +100,8 @@ set virtualedit=block
 set showtabline=0
 set nowrap
 
-if has("gui_macvim")
-  set guifont=Menlo:h12
-else
-  set guifont=Monospace\ 12
-endif
+let g:Powerline_symbols = 'fancy'
+set guifont=Menlo\ for\ Powerline:h12
 
 if has('gui_running')
   set background=light
