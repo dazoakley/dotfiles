@@ -41,7 +41,7 @@ export PS1="$BLACK[ \u@$RED\h $GREEN\w$RED_BOLD\$(parse_git_branch)\$(parse_svn_
 ## Terminal colours (after installing GNU coreutils)
 ##
 
-export TERM=xterm-color
+export TERM=xterm-256color
 if [ "$TERM" != "dumb" ]; then
   lscols=auto
   export LS_OPTIONS='--color=auto'

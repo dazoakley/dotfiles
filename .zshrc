@@ -5,8 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="juanghurtado"
-ZSH_THEME="agnoster"
+ZSH_THEME="eastwood"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -41,7 +40,7 @@ source $HOME/.env_exports
 ## Terminal colours (after installing GNU coreutils)
 ##
 
-export TERM=xterm-color
+export TERM=xterm-256color
 if [ "$TERM" != "dumb" ]; then
   lscols=auto
   export LS_OPTIONS='--color=auto'

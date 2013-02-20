@@ -101,15 +101,10 @@ set showtabline=0
 set nowrap
 
 let g:Powerline_symbols = 'fancy'
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=Menlo\ for\ Powerline:h13
 
-if has('gui_running')
-  set background=light
-  colorscheme macvim
-else
-  set background=light
-  colorscheme solarized
-endif
+set background=light
+colorscheme solarized
 
 set mouse=a                     " enable the mouse in xterm
 set history=1000                " how many lines of history to remember
