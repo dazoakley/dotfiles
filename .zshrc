@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="juanghurtado"
+ZSH_THEME="eastwood"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -36,6 +36,38 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.env_exports
 
+##
+## Terminal colours (after installing GNU coreutils)
+##
+
+export TERM=xterm-256color
+if [ "$TERM" != "dumb" ]; then
+  lscols=auto
+  export LS_OPTIONS='--color=auto'
+
+  case $(uname -s) in
+    Darwin)
+      eval "`gdircolors $HOME/.dir_colors`"
+    ;;
+    Linux)
+      eval "`dircolors $HOME/.dir_colors`"
+    ;;
+  esac
+fi
+
+case $(uname -s) in
+  Darwin)
+    alias ls='gls $LS_OPTIONS -hF'
+    alias ll='gls $LS_OPTIONS -lhF'
+    alias l='gls $LS_OPTIONS -lAhF'
+  ;;
+  Linux)
+    alias ls='ls $LS_OPTIONS -hF'
+    alias ll='ls $LS_OPTIONS -lhF'
+    alias l='ls $LS_OPTIONS -lAhF'
+  ;;
+esac
+
 # Make the arrow keys work as expected in stuff... (i.e. irb)
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
@@ -43,8 +75,10 @@ bindkey "^[[1;9D" backward-word
 bindkey "^[[1;9C" forward-word
 
 # git
-source /usr/local/etc/bash_completion.d/git-completion.bash
 git(){ hub "$@" }
+
+# zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # RVM / RBENV
 if [[ -d "$HOME/.rvm" ]]; then
@@ -54,4 +88,7 @@ fi
 if [[ -d "$HOME/.rbenv" ]]; then
   eval "$(rbenv init -)"
 fi
+
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
 

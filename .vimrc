@@ -21,7 +21,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'matchit.zip'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ack.vim'
 Bundle 'sontek/minibufexpl.vim'
@@ -34,18 +33,15 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-liquid'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-Bundle 'VimClojure'
-Bundle 'jpalardy/vim-slime'
 Bundle 'dharanasoft/rtf-highlight'
 Bundle 'greyblake/vim-preview'
 Bundle 'juvenn/mustache.vim'
 Bundle 'jimmyhchan/dustjs.vim'
 Bundle 'rkitover/perl-vim-mxd'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
@@ -104,19 +100,11 @@ set virtualedit=block
 set showtabline=0
 set nowrap
 
-if has("gui_macvim")
-  set guifont=Menlo:h12
-else
-  set guifont=Monospace\ 12
-endif
+let g:Powerline_symbols = 'fancy'
+set guifont=Menlo\ for\ Powerline:h13
 
-if has('gui_running')
-  set background=light
-  colorscheme macvim
-else
-  set background=dark
-  colorscheme molokai
-endif
+set background=light
+colorscheme solarized
 
 set mouse=a                     " enable the mouse in xterm
 set history=1000                " how many lines of history to remember
@@ -182,12 +170,6 @@ set foldnestmax=5                         " max detpth of folding
 " zc - Close the fold that the cursor is inside
 " zR - Open all folds
 " zM - Close all folds
-
-" remember last location in file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal g'\"" | endif
-endif
 
 " remove trailing whitespace automatically
 autocmd BufWritePre * :%s/\s\+$//e
