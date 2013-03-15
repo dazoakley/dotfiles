@@ -107,8 +107,8 @@ alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x8
 alias jenkins-start="launchctl load -w /usr/local/Cellar/jenkins/1.447/org.jenkins-ci.plist"
 alias jenkins-stop="launchctl unload -w /usr/local/Cellar/jenkins/1.447/org.jenkins-ci.plist"
 
-alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.6.9/homebrew.mxcl.redis.plist"
-alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.6.9/homebrew.mxcl.redis.plist"
+alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.6.10/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.6.10/homebrew.mxcl.redis.plist"
 
 alias nginx-start="launchctl load -w /usr/local/Cellar/nginx/1.2.2/homebrew.mxcl.nginx.plist"
 alias nginx-stop="launchctl unload -w /usr/local/Cellar/nginx/1.2.2/homebrew.mxcl.nginx.plist"
