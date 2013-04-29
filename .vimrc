@@ -77,7 +77,7 @@ set autoindent
 set smartindent
 set softtabstop=2
 set shiftwidth=2
-set tabstop=4
+set tabstop=2
 set expandtab
 set nosmarttab
 
@@ -94,7 +94,7 @@ set noshowcmd
 set nolazyredraw
 set number
 set nostartofline
-set cursorline
+" set cursorline
 set showmatch
 set virtualedit=block
 set showtabline=0
@@ -216,6 +216,9 @@ autocmd BufRead,BufNewFile *.pl,*.plx,*.pm noremap <F5> :Tidy<CR>
 " HTML/XML - setup tidying
 autocmd BufRead,BufNewFile *.xml command! -range=% -nargs=* Tidy <line1>,<line2>!tidy --input-xml true --indent yes --wrap 10000 2>/dev/null
 autocmd BufRead,BufNewFile *.html command! -range=% -nargs=* Tidy <line1>,<line2>!tidy --indent yes --wrap 10000 2>/dev/null
+
+" git commit messages
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " vim-preview
 nmap <Leader>P :Preview<CR>
