@@ -10,6 +10,14 @@ alias ..="cd .."
 
 alias sqlite="sqlite3"
 
+# Bundler
+alias be="bundle exec"
+alias bi="bundle install"
+alias bl="bundle list"
+alias bp="bundle package"
+alias bo="bundle open"
+alias bu="bundle update"
+
 # Enable tap to click (Trackpad)
 alias enable-tap-to-click="defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true"
 
@@ -64,29 +72,8 @@ alias pumpitup="osascript -e 'set volume 10'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # SSH Aliases
-alias ssh-sanger="ssh -l do2 ssh.sanger.ac.uk"
-alias ssh-gtrap1a="ssh -p 10022 -l do2 localhost"
-alias ssh-htgt="ssh -p 10025 -l do2 localhost"
-alias ssh-htgt-with-x="ssh -X -C -p 10025 -l do2 localhost"
-alias ssh-htgt-web="ssh -p 10026 -l do2 localhost"
-alias ssh-htgt-web-with-x="ssh -X -C -p 10026 -l do2 localhost"
-alias ssh-cbi4="ssh -p 10023 -l do2 localhost"
-alias ssh-farm="ssh -p 1024 -l do2 localhost"
-alias ssh-etch-dev64="ssh -p 10027 -l do2 localhost"
-alias ssh-t87-mongodb="ssh -p 10028 -l do2 localhost"
-alias team87-gtrap1a="ssh -p 10022 -l team87 localhost"
-alias team87-htgt="ssh -p 10025 -l team87 localhost"
-alias team87-htgt-web="ssh -p 10026 -l team87 localhost"
-alias team87-etch-dev64="ssh -p 10027 -l team87 localhost"
-alias team87-t87-mongodb="ssh -p 10028 -l team87 localhost"
-
-alias ssh-idcc-devel="ssh -l darren.oakley -p 54321 -X -L 33306:localhost:3306 idcc-devel.helmholtz-muenchen.de"
-alias ssh-biomart-idcc-devel="ssh -l biomart -p 54321 -L 33306:localhost:3306 idcc-devel.helmholtz-muenchen.de"
-
-alias ssh-ikmc-vm="ssh do2@ikmc.vm.bytemark.co.uk"
-alias rsync-ikmc-vm-conf="rsync -arcv --exclude .svn ~/projects/conf-ikmc.vm.bytemark.co.uk/ ikmc.vm.bytemark.co.uk:conf/"
-
-alias ssh-hocuspokus="ssh -l admin hocuspokus.vm.bytemark.co.uk"
+alias ssh-scicombinator="ssh dazoakley@direct.scicombinator.com"
+alias ssh-hocuspokus="ssh admin@hocuspokus.vm.bytemark.co.uk"
 alias ssh-hocuspokus-admin="ssh hocuspokus@hocuspokus.vmadmin.bytemark.co.uk"
 
 ##
@@ -103,9 +90,6 @@ alias apache-start="sudo apachectl start"
 alias apache-stop="sudo apachectl stop"
 
 alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
-
-alias jenkins-start="launchctl load -w /usr/local/Cellar/jenkins/1.447/org.jenkins-ci.plist"
-alias jenkins-stop="launchctl unload -w /usr/local/Cellar/jenkins/1.447/org.jenkins-ci.plist"
 
 alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.6.11/homebrew.mxcl.redis.plist"
 alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.6.11/homebrew.mxcl.redis.plist"
