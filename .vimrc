@@ -99,6 +99,7 @@ set showmatch
 set virtualedit=block
 set showtabline=0
 set nowrap
+set clipboard=unnamed
 
 let g:Powerline_symbols = 'fancy'
 set guifont=Menlo\ for\ Powerline:h13
