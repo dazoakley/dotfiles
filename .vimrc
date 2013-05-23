@@ -19,29 +19,44 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+" general
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
 Bundle 'ack.vim'
-Bundle 'sontek/minibufexpl.vim'
-Bundle 'tpope/vim-cucumber'
-Bundle 'vim-ruby/vim-ruby'
+Bundle 'kien/ctrlp.vim'
 Bundle 'nginx.vim'
-Bundle 'kogent/vim-puppet'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-endwise'
+Bundle 'sontek/minibufexpl.vim'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+
+" markdown
+Bundle 'tpope/vim-markdown'
 Bundle 'dharanasoft/rtf-highlight'
 Bundle 'greyblake/vim-preview'
-Bundle 'juvenn/mustache.vim'
-Bundle 'jimmyhchan/dustjs.vim'
+
+" puppet
+Bundle 'kogent/vim-puppet'
+
+" perl
 Bundle 'rkitover/perl-vim-mxd'
-Bundle 'altercation/vim-colors-solarized'
+
+" javascript
+Bundle 'pangloss/vim-javascript'
+Bundle 'jimmyhchan/dustjs.vim'
+Bundle 'juvenn/mustache.vim'
+Bundle 'kchmck/vim-coffee-script'
+
+" ruby
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-cucumber'
+
+" clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
@@ -225,7 +240,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 nmap <Leader>P :Preview<CR>
 
 " RTF Highlight
-let g:rtfh_theme = 'molokai'
+let g:rtfh_theme = 'solarized'
 
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
