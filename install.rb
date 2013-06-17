@@ -44,8 +44,9 @@ unless File.directory?(vundledir)
   system "git clone http://github.com/gmarik/vundle.git #{vundledir}"
 end
 
-# Symlink Nature firewall rules & nginx conf
+# Symlink Nature firewall rules & nginx/apache conf
 
 system "sudo ln -nfs ~/projects/dotfiles/com.nature.firewall.plist /Library/LaunchAgents/com.nature.firewall.plist"
-system "cd /usr/local/etc/nginx && sudo ln -nfs ~/projects/dotfiles/nginx.conf nginx.conf"
+system "cd /usr/local/etc/nginx && sudo rm nginx.conf && sudo ln -nfs ~/projects/dotfiles/nginx.conf nginx.conf"
+system "cd /etc/apache2/extra && sudo rm httpd-vhosts.conf && sudo ln -nfs ~/projects/dotfiles/apache-vhosts.conf httpd-vhosts.conf"
 
