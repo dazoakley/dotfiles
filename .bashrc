@@ -95,12 +95,7 @@ fi
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
 
-# RVM / RBENV
-if [[ -d "$HOME/.rvm" ]]; then
-  PATH=$PATH:$HOME/.rvm/bin
-  source "$HOME/.rvm/scripts/rvm"
-fi
-
+# RBENV
 if [[ -d "$HOME/.rbenv" ]]; then
   eval "$(rbenv init -)"
 fi

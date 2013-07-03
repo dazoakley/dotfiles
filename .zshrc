@@ -72,11 +72,7 @@ git(){ hub "$@" }
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
-# RVM / RBENV
-if [[ -d "$HOME/.rvm" ]]; then
-  PATH=$PATH:$HOME/.rvm/bin
-fi
-
+# RBENV
 if [[ -d "$HOME/.rbenv" ]]; then
   eval "$(rbenv init -)"
 fi
