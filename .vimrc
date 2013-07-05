@@ -125,7 +125,6 @@ colorscheme solarized
 set mouse=a                     " enable the mouse in xterm
 set history=1000                " how many lines of history to remember
 set term=xterm-256color         " give me more colors
-set term=ansi                   " make numpad work in terminal in OSX
 
 " searching
 set hlsearch
