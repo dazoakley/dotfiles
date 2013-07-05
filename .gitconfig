@@ -1,28 +1,26 @@
 [user]
-	name = Darren Oakley
-	email = daz.oakley@gmail.com
+  name = Darren Oakley
+  email = daz.oakley@gmail.com
+[credential]
+  helper = osxkeychain
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  promote = !$ZSH/bin/git-promote
+  wtf     = !$ZSH/bin/git-wtf
 [merge]
-	tool = opendiff
-	summary = true
+  tool = opendiff
+  summary = true
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore
+  editor = vim
+  excludesfile = ~/.gitignore
 [push]
-	default = matching
+  default = matching
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
