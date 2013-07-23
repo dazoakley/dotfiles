@@ -102,3 +102,10 @@ alias memcached-stop="launchctl unload -w /usr/local/Cellar/memcached/1.4.14/hom
 
 alias firewall-nginx="sudo launchctl load -wF /Library/LaunchAgents/com.nature.firewall.plist"
 
+##
+## Logs
+##
+
+alias tail-nginx-error="tail -f /usr/local/var/log/nginx-error.log"
+alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
+
