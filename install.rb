@@ -46,7 +46,9 @@ end
 
 # Symlink Nature firewall rules & nginx/apache conf
 
-system "sudo ln -nfs ~/projects/dotfiles/com.nature.firewall.plist /Library/LaunchAgents/com.nature.firewall.plist"
+system "sudo chown root:wheel ~/projects/dotfiles/ipfw.plist"
+system "sudo ln -nfs ~/projects/dotfiles/ipfw.plist /Library/LaunchDaemons/ipfw.plist"
+system "sudo ln -nfs ~/projects/dotfiles/ipfw.conf /etc/ipfw.conf"
 system "cd /usr/local/etc/nginx && sudo rm nginx.conf && sudo ln -nfs ~/projects/dotfiles/nginx.conf nginx.conf"
 system "cd /etc/apache2/extra && sudo rm httpd-vhosts.conf && sudo ln -nfs ~/projects/dotfiles/apache-vhosts.conf httpd-vhosts.conf"
 
