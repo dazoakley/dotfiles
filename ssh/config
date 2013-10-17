@@ -29,8 +29,13 @@ Host heroku.letsdobeer
   IdentityFile "/Users/d.oakley/.ssh/id_rsa"
   IdentitiesOnly yes
 
-Host heroku.personal
+Host heroku.yeasthub
   HostName heroku.com
-  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.personal"
+  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.yeasthub"
+  IdentitiesOnly yes
+
+Host heroku.scisocial
+  HostName heroku.com
+  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.scisocial"
   IdentitiesOnly yes
 

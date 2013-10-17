@@ -224,6 +224,7 @@ au BufRead,BufNewFile *.mustache set foldmethod=indent ft=mustache
 
 " md, markdown, and mk are markdown
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:enableSpellCheck()
+autocmd Filetype markdown setlocal spell textwidth=79
 
 " Perl - setup perltidy
 autocmd BufRead,BufNewFile *.pl,*.plx,*.pm command! -range=% -nargs=* Tidy <line1>,<line2>!perltidy -pbp -l=100
