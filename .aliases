@@ -91,8 +91,8 @@ alias apache-stop="sudo apachectl stop"
 
 alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
 
-alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.6.11/homebrew.mxcl.redis.plist"
-alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.6.11/homebrew.mxcl.redis.plist"
+alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.6.14/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.6.14/homebrew.mxcl.redis.plist"
 
 alias nginx-start="launchctl load -w /usr/local/Cellar/nginx/1.4.1/homebrew.mxcl.nginx.plist"
 alias nginx-stop="launchctl unload -w /usr/local/Cellar/nginx/1.4.1/homebrew.mxcl.nginx.plist"

@@ -58,6 +58,10 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 
+" Dash
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
 
@@ -212,7 +216,7 @@ au FileType make set noexpandtab
 
 " Set non-standard syntaxes
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile *.{rake,task} set ft=ruby
+au BufRead,BufNewFile *.{rake,task,graph} set ft=ruby
 au BufRead,BufNewFile *.{erubis,erb} set ft=eRuby
 au BufRead,BufNewFile *.html.erb set ft=eruby.html " TODO: figure out how to stop syntastic treating this as HTML!
 au BufRead,BufNewFile *.json set ft=javascript

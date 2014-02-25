@@ -4,7 +4,6 @@
 :bulk_threshold: 1000
 :sources:
 - http://rubygems.org
-- http://gems.npgsrv.com/
 :update_sources: true
 :verbose: true
 gemcutter_key: 366e053d14decf027992b4609ba7a7f1
