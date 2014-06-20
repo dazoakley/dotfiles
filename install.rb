@@ -13,7 +13,7 @@ end
 
 # My SSH setup...
 
-sshdir = "#{ENV['HOME']}/.ssh"
+sshdir        = "#{ENV['HOME']}/.ssh"
 shhdir_config = "#{sshdir}/config"
 system "mkdir #{sshdir}" unless File.directory?(sshdir)
 system "mv -f #{shhdir_config} #{shhdir_config}.bak" if File.exists?(shhdir_config)
@@ -44,11 +44,36 @@ unless File.directory?(vundledir)
   system "git clone http://github.com/gmarik/vundle.git #{vundledir}"
 end
 
-# Symlink Nature firewall rules & nginx/apache conf
+# Symlink nature firewall rules
 
 system "sudo chown root:wheel ~/projects/dotfiles/ipfw.plist"
 system "sudo ln -nfs ~/projects/dotfiles/ipfw.plist /Library/LaunchDaemons/ipfw.plist"
 system "sudo ln -nfs ~/projects/dotfiles/ipfw.conf /etc/ipfw.conf"
+
+# Symlink nginx/apache conf
+
 system "cd /usr/local/etc/nginx && sudo rm nginx.conf && sudo ln -nfs ~/projects/dotfiles/nginx.conf nginx.conf"
 system "cd /etc/apache2/extra && sudo rm httpd-vhosts.conf && sudo ln -nfs ~/projects/dotfiles/apache-vhosts.conf httpd-vhosts.conf"
+
+# Syslog local0 facility setup
+
+syslog_conf_file = '/etc/syslog.conf'
+syslog_log_file  = '/var/log/local.log'
+syslog_str       = "local0.* #{syslog_log_file}"
+
+system "sudo touch #{syslog_log_file}"
+system "sudo chown root:admin #{syslog_log_file}"
+
+unless File.read(syslog_conf_file).include?(syslog_str)
+  puts %Q{
+    To complete the syslog setup you now need to add the following line to '#{syslog_conf_file}':
+
+    #{syslog_str}
+
+    Then run the following commands:
+
+    sudo launchctl unload /System/Library/LaunchDaemons/com.apple.syslogd.plist
+    sudo launchctl load /System/Library/LaunchDaemons/com.apple.syslogd.plist
+  }
+end
 
