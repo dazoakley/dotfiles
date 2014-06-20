@@ -80,5 +80,6 @@ fi
 REPORTTIME=10
 
 # Stop trying to flipping autocorrect rspec!!!
-alias rspec='\rspec'
+alias rspec='noglob rspec'
+alias rake="noglob rake"
 
