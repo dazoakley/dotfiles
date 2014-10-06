@@ -26,11 +26,11 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nginx.vim'
-Bundle 'sontek/minibufexpl.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'fholgado/minibufexpl.vim'
 
 " markdown
 Bundle 'tpope/vim-markdown'
@@ -53,14 +53,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-cucumber'
-
-" clojure
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-
-" Dash
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+Bundle 'ngmy/vim-rubocop'
 
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
