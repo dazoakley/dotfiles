@@ -248,8 +248,8 @@ map <F2> :NERDTreeToggle<CR>
 
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=1
 let g:syntastic_auto_loc_list=1
 
 

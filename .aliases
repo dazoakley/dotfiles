@@ -100,8 +100,8 @@ alias nginx-stop="launchctl unload -w /usr/local/Cellar/nginx/1.4.1/homebrew.mxc
 alias memcached-start="launchctl load -w /usr/local/Cellar/memcached/1.4.14/homebrew.mxcl.memcached.plist"
 alias memcached-stop="launchctl unload -w /usr/local/Cellar/memcached/1.4.14/homebrew.mxcl.memcached.plist"
 
-alias firewall-enable-nginx="sudo launchctl load -wF /Library/LaunchAgents/com.nature.firewall.plist"
-alias firewall-disable-nginx="sudo launchctl unload -wF /Library/LaunchAgents/com.nature.firewall.plist"
+alias firewall-enable-nginx="sudo launchctl load -wF /Library/LaunchDaemons/ipfw.plist"
+alias firewall-disable-nginx="sudo launchctl unload -wF /Library/LaunchDaemons/ipfw.plist"
 
 ##
 ## Logs
