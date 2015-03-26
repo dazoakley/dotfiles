@@ -20,7 +20,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " general
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -32,6 +33,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'fholgado/minibufexpl.vim'
+Bundle 'bkad/vim-terraform'
 
 " markdown
 Bundle 'tpope/vim-markdown'
@@ -116,6 +118,22 @@ set clipboard=unnamed
 
 let g:Powerline_symbols = 'fancy'
 set guifont=Menlo\ for\ Powerline:h13
+
+let g:airline_powerline_fonts = 0
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+let g:airline_symbols.space = "\ua0"
 
 set background=light
 colorscheme solarized

@@ -64,9 +64,6 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey "^[[1;9D" backward-word
 bindkey "^[[1;9C" forward-word
 
-# git
-git(){ hub "$@" }
-
 # zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions $fpath)
@@ -82,4 +79,11 @@ REPORTTIME=10
 # Stop trying to flipping autocorrect rspec!!!
 alias rspec='noglob rspec'
 alias rake="noglob rake"
+
+# github cli
+eval "$(gh alias -s)"
+
+# Google Cloud SDK
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 

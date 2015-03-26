@@ -93,12 +93,14 @@ if [ -e "$HOME/.bash_profile.local" ]; then
 fi
 
 source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
 
 # RBENV
 if [[ -d "$HOME/.rbenv" ]]; then
   eval "$(rbenv init -)"
 fi
+
+# github cli
+eval "$(gh alias -s)"
 
 ## VIM
 
