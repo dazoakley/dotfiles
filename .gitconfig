@@ -19,7 +19,7 @@
   tool = opendiff
   summary = true
 [core]
-  editor = vim
+  editor = atom
   excludesfile = ~/.gitignore
 [push]
   default = matching
