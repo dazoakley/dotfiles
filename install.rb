@@ -44,12 +44,6 @@ unless File.directory?(vundledir)
   system "git clone http://github.com/gmarik/vundle.git #{vundledir}"
 end
 
-# Symlink nature firewall rules
-
-system "sudo chown root:wheel ~/projects/dotfiles/ipfw.plist"
-system "sudo ln -nfs ~/projects/dotfiles/ipfw.plist /Library/LaunchDaemons/ipfw.plist"
-system "sudo ln -nfs ~/projects/dotfiles/ipfw.conf /etc/ipfw.conf"
-
 # Symlink nginx/apache conf
 
 system "cd /usr/local/etc/nginx && sudo rm nginx.conf && sudo ln -nfs ~/projects/dotfiles/nginx.conf nginx.conf"
@@ -76,4 +70,3 @@ unless File.read(syslog_conf_file).include?(syslog_str)
     sudo launchctl load /System/Library/LaunchDaemons/com.apple.syslogd.plist
   }
 end
-

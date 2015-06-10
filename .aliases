@@ -91,17 +91,15 @@ alias apache-stop="sudo apachectl stop"
 
 alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
 
-alias redis-start="launchctl load -w /usr/local/Cellar/redis/2.6.14/homebrew.mxcl.redis.plist"
-alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/2.6.14/homebrew.mxcl.redis.plist"
+alias redis-start="launchctl load -w /usr/local/Cellar/redis/3.0.2/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/3.0.2/homebrew.mxcl.redis.plist"
 
-alias nginx-start="launchctl load -w /usr/local/Cellar/nginx/1.4.1/homebrew.mxcl.nginx.plist"
-alias nginx-stop="launchctl unload -w /usr/local/Cellar/nginx/1.4.1/homebrew.mxcl.nginx.plist"
+alias nginx-start="sudo /usr/local/opt/nginx/bin/nginx"
+alias nginx-stop="sudo /usr/local/opt/nginx/bin/nginx -s stop"
+alias nginx-reload="sudo /usr/local/opt/nginx/bin/nginx -s reload"
 
-alias memcached-start="launchctl load -w /usr/local/Cellar/memcached/1.4.14/homebrew.mxcl.memcached.plist"
-alias memcached-stop="launchctl unload -w /usr/local/Cellar/memcached/1.4.14/homebrew.mxcl.memcached.plist"
-
-alias firewall-enable-nginx="sudo launchctl load -wF /Library/LaunchDaemons/ipfw.plist"
-alias firewall-disable-nginx="sudo launchctl unload -wF /Library/LaunchDaemons/ipfw.plist"
+alias memcached-start="launchctl load -w /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist"
+alias memcached-stop="launchctl unload -w /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist"
 
 ##
 ## Logs
@@ -109,4 +107,3 @@ alias firewall-disable-nginx="sudo launchctl unload -wF /Library/LaunchDaemons/i
 
 alias tail-nginx-error="tail -f /usr/local/var/log/nginx-error.log"
 alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
-
