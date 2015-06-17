@@ -17,8 +17,7 @@
   tool = atom --wait
   summary = true
 [core]
-  editor = atom --wait
+	editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]
   default = matching
-
