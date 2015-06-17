@@ -13,13 +13,11 @@
   ci = commit
   co = checkout
   br = branch
-  promote = !$ZSH/bin/git-promote
-  wtf     = !$ZSH/bin/git-wtf
 [merge]
-  tool = opendiff
+  tool = atom --wait
   summary = true
 [core]
-  editor = atom
+  editor = atom --wait
   excludesfile = ~/.gitignore
 [push]
   default = matching

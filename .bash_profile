@@ -108,3 +108,6 @@ if [ $VIM ]; then
   export PS1='[VIM]\h:\w\$ '
   unset LS_OPTIONS
 fi
+
+export NVM_DIR="/Users/d.oakley/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
