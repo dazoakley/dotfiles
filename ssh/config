@@ -24,8 +24,12 @@ Host hocuspokus.vm.bytemark.co.uk
 
   DynamicForward 7777
 
-Host heroku.scisocial
+Host heroku.hubot
   HostName heroku.com
-  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.scisocial"
+  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.hubot"
   IdentitiesOnly yes
 
+Host heroku.bandiera
+  HostName heroku.com
+  IdentityFile "/Users/d.oakley/.ssh/identity.heroku.bandiera"
+  IdentitiesOnly yes
