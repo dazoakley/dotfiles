@@ -76,6 +76,8 @@ alias ssh-scicombinator="ssh dazoakley@scicombinator.com"
 alias ssh-hocuspokus="ssh admin@hocuspokus.vm.bytemark.co.uk"
 alias ssh-hocuspokus-admin="ssh hocuspokus@hocuspokus.vmadmin.bytemark.co.uk"
 
+alias ssh-npgutil="ssh doakley@192.168.4.69"
+
 ##
 ## Services
 ##
