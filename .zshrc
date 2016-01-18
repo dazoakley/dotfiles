@@ -68,11 +68,6 @@ bindkey "^[[1;9C" forward-word
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
-# RBENV
-if [[ -d "$HOME/.rbenv" ]]; then
-  eval "$(rbenv init -)"
-fi
-
 # Report CPU usage for commands running longer than 10 seconds
 REPORTTIME=10
 

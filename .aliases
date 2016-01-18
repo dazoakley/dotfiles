@@ -69,12 +69,12 @@ done
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # SSH Aliases
 alias ssh-scicombinator="ssh dazoakley@scicombinator.com"
-alias ssh-hocuspokus="ssh admin@hocuspokus.vm.bytemark.co.uk"
-alias ssh-hocuspokus-admin="ssh hocuspokus@hocuspokus.vmadmin.bytemark.co.uk"
+
+alias ssh-hocuspokus="ssh admin@hocuspokus.default.dazoakley.uk0.bigv.io"
+alias ssh-hocuspokus-old="ssh admin@hocuspokus.vm.bytemark.co.uk"
 
 alias ssh-npgutil="ssh doakley@192.168.4.69"
 
@@ -93,8 +93,8 @@ alias apache-stop="sudo apachectl stop"
 
 alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
 
-alias redis-start="launchctl load -w /usr/local/Cellar/redis/3.0.2/homebrew.mxcl.redis.plist"
-alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/3.0.2/homebrew.mxcl.redis.plist"
+alias redis-start="launchctl load -w /usr/local/Cellar/redis/3.0.5/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/3.0.5/homebrew.mxcl.redis.plist"
 
 alias nginx-start="sudo /usr/local/opt/nginx/bin/nginx"
 alias nginx-stop="sudo /usr/local/opt/nginx/bin/nginx -s stop"

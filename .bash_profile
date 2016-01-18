@@ -94,11 +94,6 @@ fi
 
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
-# RBENV
-if [[ -d "$HOME/.rbenv" ]]; then
-  eval "$(rbenv init -)"
-fi
-
 # github cli
 eval "$(gh alias -s)"
 
@@ -108,6 +103,3 @@ if [ $VIM ]; then
   export PS1='[VIM]\h:\w\$ '
   unset LS_OPTIONS
 fi
-
-export NVM_DIR="/Users/d.oakley/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
