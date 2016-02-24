@@ -20,18 +20,18 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " general
-" Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'ack.vim'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'nginx.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'bkad/vim-terraform'
 
@@ -116,16 +116,12 @@ set showtabline=0
 set nowrap
 set clipboard=unnamed
 
-" let g:Powerline_symbols = 'fancy'
-" set guifont=Menlo\ for\ Powerline:h13
-
-let g:airline_powerline_fonts = 0
-
+" vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" unicode symbols
+let g:airline_powerline_fonts = 0
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
@@ -169,10 +165,10 @@ set scrolloff=3
 set hidden
 
 " so that things like rbenv Just Work
-set shell=/bin/bash
+set shell=/bin/zsh
 
 " leader
-let mapleader = "\\"
+let mapleader = ","
 
 " no line numbers when exporting HTML
 let g:html_number_lines = 0
@@ -263,12 +259,15 @@ let g:rtfh_theme = 'solarized'
 map <F2> :NERDTreeToggle<CR>
 
 " Syntastic
-
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=1
 let g:syntastic_auto_loc_list=1
+
+" vim-commentary
+autocmd FileType apache setlocal commentstring=#\ %s
+autocmd FileType nginx setlocal commentstring=#\ %s
 
 " ###########################################################
 " CUSTOM MAPPINGS / COMMANDS

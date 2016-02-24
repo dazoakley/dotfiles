@@ -82,7 +82,7 @@ alias ssh-npgutil="ssh doakley@192.168.4.69"
 ## Services
 ##
 
-alias mysql-start="mysql.server start"
+alias mysql-start="mysql.server start --bind-address=0.0.0.0"
 alias mysql-stop="mysql.server stop"
 
 alias postgres-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
