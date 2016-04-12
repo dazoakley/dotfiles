@@ -1,6 +1,7 @@
 [user]
   name = Darren Oakley
   email = daz.oakley@gmail.com
+  signingkey = D5A9956B
 [credential]
   helper = osxkeychain
 [color]
@@ -10,14 +11,14 @@
   interactive = auto
 [alias]
   st = status
-  ci = commit
+  ci = commit -S
   co = checkout
   br = branch
 [merge]
   tool = atom --wait
   summary = true
 [core]
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
   excludesfile = ~/.gitignore
 [push]
   default = matching
