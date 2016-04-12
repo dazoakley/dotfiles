@@ -1,21 +1,3 @@
-Host *.nature.com
-  User doakley
-
-  Compression yes
-  ForwardX11 no
-  ForwardAgent true
-
-  LocalForward 3890 it-ldap1.nature.com:389
-  LocalForward 8003 192.168.88.102:8003
-  DynamicForward 5555
-
-Host *.npgsrv.com
-  User doakley
-
-  Compression yes
-  ForwardX11 no
-  ForwardAgent true
-
 Host hocuspokus.vm.bytemark.co.uk
   User admin
   Compression yes
@@ -23,6 +5,16 @@ Host hocuspokus.vm.bytemark.co.uk
   ForwardAgent true
 
   DynamicForward 7777
+
+Host ?.access.*.cloud.bbc.co.uk
+  IdentityFile ~/.ssh/id_rsa
+
+Host *,??-*-?
+  User darren_oakley
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand >&1; h="%h"; r=${h##*,}; i=${h%%,*}; v=$(($(cut -d. -f2 <<<$i) / 32)); exec ssh -q -p 22000 bastion-tunnel@$v.access.$r.cloud.bbc.co.uk nc $i %p
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
 
 Host heroku.hubot
   HostName heroku.com
