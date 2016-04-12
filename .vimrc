@@ -58,6 +58,9 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-cucumber'
 Bundle 'ngmy/vim-rubocop'
 
+" scala
+Bundle 'derekwyatt/vim-scala'
+
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
 
