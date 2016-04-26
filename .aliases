@@ -72,11 +72,7 @@ alias pumpitup="osascript -e 'set volume 10'"
 
 # SSH Aliases
 alias ssh-scicombinator="ssh dazoakley@scicombinator.com"
-
-alias ssh-hocuspokus="ssh admin@hocuspokus.default.dazoakley.uk0.bigv.io"
-alias ssh-hocuspokus-old="ssh admin@hocuspokus.vm.bytemark.co.uk"
-
-alias ssh-npgutil="ssh doakley@192.168.4.69"
+alias ssh-hocuspokus="ssh admin@hocuspokus2.default.dazoakley.uk0.bigv.io"
 
 ##
 ## Services
@@ -109,3 +105,9 @@ alias memcached-stop="launchctl unload -w /usr/local/Cellar/memcached/1.4.24/hom
 
 alias tail-nginx-error="tail -f /usr/local/var/log/nginx-error.log"
 alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
+
+##
+## AWS CLI
+##
+
+alias assume-role-politic-developer-bbc-news-web-development="source ~/Dropbox/bin/aws/assume-role-politic-developer-bbc-news-web-development"
