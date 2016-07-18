@@ -1,0 +1,17 @@
+#! /bin/bash
+
+NEXUS_DATA_DIR="${HOME}/Dropbox/Applications/nexus-data"
+EXISTING_CONTAINER=$(docker ps -aq --filter name=nexus)
+
+if [ ! -d $NEXUS_DATA_DIR ]
+then
+  mkdir -p $NEXUS_DATA_DIR
+  sudo chmod a+w $NEXUS_DATA_DIR
+fi
+
+if [ -z $EXISTING_CONTAINER ]
+then
+  docker run -d -p 8081:8081 --name nexus -v $NEXUS_DATA_DIR:/sonatype-work sonatype/nexus
+else
+  docker start nexus
+fi
