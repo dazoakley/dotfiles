@@ -111,3 +111,10 @@ alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
 ##
 
 alias assume-role-politic-developer-bbc-news-web-development="source ~/Dropbox/bin/aws/assume-role-politic-developer-bbc-news-web-development"
+
+##
+## Docker
+##
+alias docker-rm-containers="docker rm -f $(docker ps -a -q)"
+alias docker-rm-images="docker rmi -f $(docker images -q)"
+
