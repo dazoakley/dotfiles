@@ -33,15 +33,11 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'bkad/vim-terraform'
+Plugin 'Chiel92/vim-autoformat'
 
 " markdown
-Bundle 'tpope/vim-markdown'
 Bundle 'dharanasoft/rtf-highlight'
 Bundle 'greyblake/vim-preview'
-
-" puppet
-Bundle 'kogent/vim-puppet'
 
 " perl
 Bundle 'rkitover/perl-vim-mxd'
@@ -60,6 +56,9 @@ Bundle 'ngmy/vim-rubocop'
 
 " scala
 Bundle 'derekwyatt/vim-scala'
+
+" go
+Bundle 'fatih/vim-go'
 
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype

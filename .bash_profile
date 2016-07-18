@@ -103,3 +103,7 @@ if [ $VIM ]; then
   export PS1='[VIM]\h:\w\$ '
   unset LS_OPTIONS
 fi
+
+# ASDF
+. $HOME/.asdf/completions/asdf.bash
+

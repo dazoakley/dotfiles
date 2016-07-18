@@ -80,12 +80,3 @@ alias rake="noglob rake"
 
 # github cli
 eval "$(gh alias -s)"
-
-# Google Cloud SDK
-#source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-#source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
-# Online help
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/help
