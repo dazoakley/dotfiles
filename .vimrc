@@ -60,6 +60,9 @@ Bundle 'derekwyatt/vim-scala'
 " go
 Bundle 'fatih/vim-go'
 
+" crystal
+Bundle 'rhysd/vim-crystal'
+
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
 
@@ -73,7 +76,8 @@ set nofoldenable
 set encoding=utf-8
 
 " highlight trailing whitespace
-set list listchars=trail:·,tab:>-
+set list
+set listchars=trail:·,tab:\|\·
 
 " backups and swapfiles
 set nobackup
