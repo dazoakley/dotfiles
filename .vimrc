@@ -24,7 +24,7 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'ack.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'nginx.vim'
@@ -33,7 +33,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'fholgado/minibufexpl.vim'
-Plugin 'Chiel92/vim-autoformat'
+Bundle 'neomake/neomake'
 
 " markdown
 Bundle 'dharanasoft/rtf-highlight'
@@ -142,7 +142,6 @@ colorscheme solarized
 
 set mouse=a                     " enable the mouse in xterm
 set history=1000                " how many lines of history to remember
-set term=xterm-256color         " give me more colors
 
 " searching
 set hlsearch
@@ -252,6 +251,9 @@ autocmd BufRead,BufNewFile *.pl,*.plx,*.pm noremap <F5> :Tidy<CR>
 autocmd BufRead,BufNewFile *.xml command! -range=% -nargs=* Tidy <line1>,<line2>!tidy --input-xml true --indent yes --wrap 10000 2>/dev/null
 autocmd BufRead,BufNewFile *.html command! -range=% -nargs=* Tidy <line1>,<line2>!tidy --indent yes --wrap 10000 2>/dev/null
 
+" Yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " git commit messages
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
@@ -264,12 +266,17 @@ let g:rtfh_theme = 'solarized'
 " Nerdtree
 map <F2> :NERDTreeToggle<CR>
 
+" NeoMake - a neovim alternative for syntastic that does async code linting
+autocmd! BufReadPost,BufWritePost * Neomake
+let g:neomake_serialize = 1
+let g:neomake_serialize_abort_on_error = 1
+
 " Syntastic
-let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=1
-let g:syntastic_auto_loc_list=1
+" let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+" let g:syntastic_check_on_open=0
+" let g:syntastic_check_on_wq=1
+" let g:syntastic_auto_loc_list=1
 
 " vim-commentary
 autocmd FileType apache setlocal commentstring=#\ %s

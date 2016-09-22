@@ -44,6 +44,12 @@ unless File.directory?(vundledir)
   system "git clone http://github.com/gmarik/vundle.git #{vundledir}"
 end
 
+# Setup NeoVim
+
+system 'mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}'
+system 'ln -s ~/.vim $XDG_CONFIG_HOME/nvim'
+system 'ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim'
+
 # Symlink nginx/apache conf
 
 system "cd /usr/local/etc/nginx && sudo rm nginx.conf && sudo ln -nfs ~/projects/dotfiles/nginx.conf nginx.conf"

@@ -118,3 +118,11 @@ alias assume-role-politic-developer-bbc-news-web-development="source ~/Dropbox/b
 alias docker-rm-containers="docker rm -f $(docker ps -a -q)"
 alias docker-rm-images="docker rmi -f $(docker images -q)"
 
+##
+## NeoVim
+##
+
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
