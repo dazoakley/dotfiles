@@ -5,63 +5,66 @@ filetype off                    " required for Vundle, turn on later
 " to install: git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 " vundle brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" NOTE: comments after Plugin command are not allowed..
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " general
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
-" Bundle 'scrooloose/syntastic'
-Bundle 'ack.vim'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'nginx.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'neomake/neomake'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'nginx.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'neomake/neomake'
+Plugin 'godlygeek/tabular'
+Plugin 'rodjek/vim-puppet'
+Plugin 'hashivim/vim-hashicorp-tools'
+Plugin 'editorconfig/editorconfig-vim'
 
 " markdown
-Bundle 'dharanasoft/rtf-highlight'
-Bundle 'greyblake/vim-preview'
+Plugin 'dharanasoft/rtf-highlight'
+Plugin 'greyblake/vim-preview'
 
 " perl
-Bundle 'rkitover/perl-vim-mxd'
+Plugin 'rkitover/perl-vim-mxd'
 
 " javascript
-Bundle 'pangloss/vim-javascript'
-Bundle 'jimmyhchan/dustjs.vim'
-Bundle 'juvenn/mustache.vim'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jimmyhchan/dustjs.vim'
+Plugin 'juvenn/mustache.vim'
+Plugin 'kchmck/vim-coffee-script'
 
 " ruby
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-cucumber'
-Bundle 'ngmy/vim-rubocop'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-cucumber'
+Plugin 'ngmy/vim-rubocop'
 
 " scala
-Bundle 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 " go
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 " crystal
-Bundle 'rhysd/vim-crystal'
+Plugin 'rhysd/vim-crystal'
 
 filetype on
 filetype plugin indent on       " load the plugin and indent settings for the detected filetype
@@ -232,12 +235,12 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.{rake,task,graph} set ft=ruby
 au BufRead,BufNewFile *.{erubis,erb} set ft=eRuby
 au BufRead,BufNewFile *.html.erb set ft=eruby.html " TODO: figure out how to stop syntastic treating this as HTML!
-au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.pp set ft=puppet
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile *.yml.* set ft=yaml
 au BufRead,BufNewFile *.coffee set foldmethod=indent ft=coffee
 au BufRead,BufNewFile *.mustache set foldmethod=indent ft=mustache
+au BufNewFile,BufRead *.ejs set filetype=javascript
 
 " md, markdown, and mk are markdown
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:enableSpellCheck()
@@ -289,3 +292,5 @@ autocmd FileType nginx setlocal commentstring=#\ %s
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+command JsonTidy execute "%! jq ."
