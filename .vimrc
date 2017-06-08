@@ -278,12 +278,16 @@ let g:neomake_serialize_abort_on_error = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
 
-" Syntastic
-" let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
-" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-" let g:syntastic_check_on_open=0
-" let g:syntastic_check_on_wq=1
-" let g:syntastic_auto_loc_list=1
+" Neoformat - code formatter, run on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+
+let g:neoformat_javascript_prettier = {
+  \ 'exe': system('PATH=$(npm bin):$PATH && which prettier | tr -d "\n"'),
+  \ 'args': ['--single-quote true', '--trailing-comma es5']
+  \ }
 
 " vim-commentary
 autocmd FileType apache setlocal commentstring=#\ %s
