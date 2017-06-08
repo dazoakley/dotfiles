@@ -1,6 +1,6 @@
 [user]
-  name = Darren Oakley
-  email = daz.oakley@gmail.com
+	name = Darren Oakley
+	email = daz.oakley@gmail.com
   signingkey = D5A9956B
 [credential]
   helper = osxkeychain

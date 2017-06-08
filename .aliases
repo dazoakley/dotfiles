@@ -89,8 +89,8 @@ alias apache-stop="sudo apachectl stop"
 
 alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
 
-alias redis-start="launchctl load -w /usr/local/Cellar/redis/3.0.5/homebrew.mxcl.redis.plist"
-alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/3.0.5/homebrew.mxcl.redis.plist"
+alias redis-start="launchctl load -w /usr/local/Cellar/redis/3.2.8/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/3.2.8/homebrew.mxcl.redis.plist"
 
 alias nginx-start="sudo /usr/local/opt/nginx/bin/nginx"
 alias nginx-stop="sudo /usr/local/opt/nginx/bin/nginx -s stop"
@@ -107,12 +107,6 @@ alias tail-nginx-error="tail -f /usr/local/var/log/nginx-error.log"
 alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
 
 ##
-## AWS CLI
-##
-
-alias assume-role-politic-developer-bbc-news-web-development="source ~/Dropbox/bin/aws/assume-role-politic-developer-bbc-news-web-development"
-
-##
 ## Docker
 ##
 alias docker-rm-containers="docker rm -f $(docker ps -a -q)"
@@ -125,4 +119,3 @@ alias docker-rm-images="docker rmi -f $(docker images -q)"
 #if type nvim > /dev/null 2>&1; then
 #  alias vim='nvim'
 #fi
-

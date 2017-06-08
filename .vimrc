@@ -37,6 +37,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'rodjek/vim-puppet'
 Plugin 'hashivim/vim-hashicorp-tools'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'crazy-canux/icinga2.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " markdown
 Plugin 'dharanasoft/rtf-highlight'
@@ -47,9 +49,11 @@ Plugin 'rkitover/perl-vim-mxd'
 
 " javascript
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'juvenn/mustache.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'sbdchd/neoformat'
 
 " ruby
 Plugin 'tpope/vim-rails'
@@ -151,6 +155,9 @@ set hlsearch
 set incsearch
 set showmatch
 
+" speed up omnicomplete
+set complete-=i
+
 " This unsets the "last search pattern" register by hitting return
 noremap <CR> :noh<CR><CR>
 
@@ -172,9 +179,6 @@ set scrolloff=3
 " allow buffers to be hidden without saving
 set hidden
 
-" so that things like rbenv Just Work
-set shell=/bin/zsh
-
 " leader
 let mapleader = ","
 
@@ -195,11 +199,7 @@ set grepformat=%f:%l:%m
 let macvim_hig_shift_movement = 1
 
 " code folding
-let perl_fold=1                           " perl folding
-let ruby_fold=1                           " ruby folding
-let javaScript_fold=1                     " javascript folding
-let g:xml_syntax_folding=1                " xml folding
-set foldmethod=syntax                     " fold using syntax checking
+set foldmethod=indent                     " indent folding
 set foldnestmax=5                         " max detpth of folding
 " code folding key-bindings:
 " zo - Open the fold on the same line as the cursor
@@ -209,6 +209,8 @@ set foldnestmax=5                         " max detpth of folding
 
 " remove trailing whitespace automatically
 autocmd BufWritePre * :%s/\s\+$//e
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " ###########################################################
 " SETTINGS FOR SPECIFIC FILE TYPES
@@ -273,6 +275,8 @@ map <F2> :NERDTreeToggle<CR>
 autocmd! BufReadPost,BufWritePost * Neomake
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
 
 " Syntastic
 " let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
@@ -284,6 +288,9 @@ let g:neomake_serialize_abort_on_error = 1
 " vim-commentary
 autocmd FileType apache setlocal commentstring=#\ %s
 autocmd FileType nginx setlocal commentstring=#\ %s
+
+" ctrlp
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " ###########################################################
 " CUSTOM MAPPINGS / COMMANDS
