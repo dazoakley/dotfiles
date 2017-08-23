@@ -1,4 +1,11 @@
-set nocompatible                " be iMproved
+set nocompatible                " be iMproved, required
+
+if has('nvim')
+  let s:editor_root=expand("~/.config/nvim")
+else
+  let s:editor_root=expand("~/.vim")
+endif
+
 filetype off                    " required for Vundle, turn on later
 
 " plugins managed by Vundle (http://github.com/gmarik/vundle)
@@ -13,13 +20,12 @@ filetype off                    " required for Vundle, turn on later
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin command are not allowed..
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-" general
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
@@ -39,39 +45,28 @@ Plugin 'hashivim/vim-hashicorp-tools'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'crazy-canux/icinga2.vim'
 Plugin 'airblade/vim-gitgutter'
-
-" markdown
-Plugin 'dharanasoft/rtf-highlight'
+Plugin 'kylef/apiblueprint.vim'
+" Plugin 'dharanasoft/rtf-highlight'
+Plugin 'zerowidth/vim-copy-as-rtf'
 Plugin 'greyblake/vim-preview'
-
-" perl
 Plugin 'rkitover/perl-vim-mxd'
-
-" javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'jimmyhchan/dustjs.vim'
-Plugin 'juvenn/mustache.vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'sbdchd/neoformat'
-
-" ruby
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-cucumber'
 Plugin 'ngmy/vim-rubocop'
-
-" scala
-Plugin 'derekwyatt/vim-scala'
-
-" go
 Plugin 'fatih/vim-go'
-
-" crystal
 Plugin 'rhysd/vim-crystal'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jparise/vim-graphql'
 
-filetype on
-filetype plugin indent on       " load the plugin and indent settings for the detected filetype
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " disable modelines
 set nomodeline
@@ -156,7 +151,7 @@ set incsearch
 set showmatch
 
 " speed up omnicomplete
-set complete-=i
+" set complete-=i
 
 " This unsets the "last search pattern" register by hitting return
 noremap <CR> :noh<CR><CR>
@@ -277,24 +272,32 @@ let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
+let g:neomake_elixir_enabled_makers = ['credo']
 
-" Neoformat - code formatter, run on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
-
+" Neoformat - code formatter
 let g:neoformat_javascript_prettier = {
   \ 'exe': system('PATH=$(npm bin):$PATH && which prettier | tr -d "\n"'),
   \ 'args': ['--single-quote true', '--trailing-comma es5']
   \ }
+
+let g:neoformat_elixir_exfmt = {
+  \ 'exe': 'mix',
+  \ 'args': ['exfmt', '--stdin'],
+  \ 'stdin': 1
+  \ }
+
+let g:neoformat_enabled_elixir = ['exfmt']
 
 " vim-commentary
 autocmd FileType apache setlocal commentstring=#\ %s
 autocmd FileType nginx setlocal commentstring=#\ %s
 
 " ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|_build\|deps\|DS_Store\|git'
+
+" Python
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " ###########################################################
 " CUSTOM MAPPINGS / COMMANDS
