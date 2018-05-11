@@ -39,9 +39,9 @@ Dir.glob('vim-colors/*') do |source|
   system "ln -sf #{pwd}/#{source} #{target}"
 end
 
-vundledir = "#{vimdir}/bundle/vundle"
+vundledir = "#{vimdir}/bundle/Vundle.vim"
 unless File.directory?(vundledir)
-  system "git clone http://github.com/gmarik/vundle.git #{vundledir}"
+  system "git clone http://github.com/VundleVim/Vundle.vim.git #{vundledir}"
 end
 
 # Setup NeoVim

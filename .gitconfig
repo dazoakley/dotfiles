@@ -1,7 +1,7 @@
 [user]
 	name = Darren Oakley
 	email = daz.oakley@gmail.com
-  signingkey = D5A9956B
+	signingkey = 9BFB7983C90968BD
 [credential]
   helper = osxkeychain
 [color]
@@ -9,6 +9,7 @@
   status = auto
   branch = auto
   interactive = auto
+	ui = true
 [alias]
   st = status
   ci = commit -S
@@ -20,9 +21,14 @@
 [core]
   editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
   default = matching
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true

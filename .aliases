@@ -109,8 +109,10 @@ alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
 ##
 ## Docker
 ##
-alias docker-rm-containers="docker rm -f $(docker ps -a -q)"
-alias docker-rm-images="docker rmi -f $(docker images -q)"
+alias docker-clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+alias docker-clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+alias docker-rm-all-containers='docker rm -f $(docker ps -a -q)'
+alias docker-rm-all-images='docker rmi -f $(docker images -q)'
 
 ##
 ## NeoVim

@@ -63,6 +63,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jparise/vim-graphql'
+Plugin 'smerrill/vcl-vim-plugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
