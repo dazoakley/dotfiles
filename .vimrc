@@ -26,7 +26,6 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
@@ -206,11 +205,11 @@ set foldnestmax=5                         " max detpth of folding
 " remove trailing whitespace automatically
 autocmd BufWritePre * :%s/\s\+$//e
 
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
 " ###########################################################
 " SETTINGS FOR SPECIFIC FILE TYPES
 " ###########################################################
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 function s:enableSpellCheck()
   " Enable spell checking
