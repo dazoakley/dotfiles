@@ -63,7 +63,7 @@ alias spot-on="sudo mdutil -a -i on"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+  alias "$method"="lwp-request -m '$method'"
 done
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
@@ -118,6 +118,24 @@ alias docker-rm-all-images='docker rmi -f $(docker images -q)'
 ## NeoVim
 ##
 
-#if type nvim > /dev/null 2>&1; then
-#  alias vim='nvim'
-#fi
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+##
+## Git
+##
+
+# GPG sign all commits in current branch
+alias git-sign-branch="git rebase --exec 'git commit --amend --no-edit -n -S' -i master"
+
+## YAML helpers
+
+function parse_yaml() {
+  ruby -ryaml -e "puts YAML.load_file('${1}').to_yaml"
+}
+
+function yaml_to_json() {
+  ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load_file('${1}'))"
+}
+

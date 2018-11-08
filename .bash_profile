@@ -57,18 +57,6 @@ case $(uname -s) in
 esac
 
 ##
-## Enable bash completion
-##
-
-case $(uname -s) in
-  Darwin)
-    if [ -f `brew --prefix`/etc/bash_completion ]; then
-      . `brew --prefix`/etc/bash_completion
-    fi
-  ;;
-esac
-
-##
 ## Other config files...
 ##
 
@@ -86,13 +74,6 @@ fi
 
 # Github CLI (hub)
 eval "$(hub alias -s)"
-
-## VIM
-
-#if [ $VIM ]; then
-#  export PS1='[VIM]\h:\w\$ '
-#  unset LS_OPTIONS
-#fi
 
 # ASDF
 if [[ -d "$HOME/.asdf" ]]; then
