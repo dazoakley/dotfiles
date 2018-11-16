@@ -34,7 +34,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
-Plugin 'fholgado/minibufexpl.vim'
+" Plugin 'fholgado/minibufexpl.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'google/vim-jsonnet'
 Plugin 'greyblake/vim-preview'
@@ -138,6 +138,10 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#tabline#enabled = 1
+
+" Map F5 to bring up a list of open buffers
+:nnoremap <F5> :buffers<CR>:buffer<Space>
 
 set background=light
 colorscheme solarized
