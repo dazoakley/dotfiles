@@ -34,7 +34,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
-" Plugin 'fholgado/minibufexpl.vim'
+Plugin 'fatih/vim-hclfmt'
+Plugin 'fholgado/minibufexpl.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'google/vim-jsonnet'
 Plugin 'greyblake/vim-preview'
@@ -138,7 +139,6 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#tabline#enabled = 1
 
 " Map F5 to bring up a list of open buffers
 :nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -277,20 +277,6 @@ let g:neomake_serialize_abort_on_error = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
 let g:neomake_elixir_enabled_makers = ['credo']
-
-" Neoformat - code formatter
-let g:neoformat_javascript_prettier = {
-  \ 'exe': system('PATH=$(npm bin):$PATH && which prettier | tr -d "\n"'),
-  \ 'args': ['--single-quote true', '--trailing-comma es5']
-  \ }
-
-let g:neoformat_elixir_exfmt = {
-  \ 'exe': 'mix',
-  \ 'args': ['exfmt', '--stdin'],
-  \ 'stdin': 1
-  \ }
-
-let g:neoformat_enabled_elixir = ['exfmt']
 
 " vim-commentary
 autocmd FileType apache setlocal commentstring=#\ %s
