@@ -1,7 +1,7 @@
 [user]
 	name = Darren Oakley
 	email = daz.oakley@gmail.com
-	signingkey = 9BFB7983C90968BD
+ 	signingkey = 45BBD89D
 [credential]
   helper = osxkeychain
 [color]
@@ -16,7 +16,7 @@
   co = checkout
   br = branch
 [merge]
-  tool = atom --wait
+  tool = smerge
   summary = true
 [core]
   editor = /usr/local/bin/nvim

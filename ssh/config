@@ -9,23 +9,3 @@ Host hocuspokus.vm.bytemark.co.uk
   ForwardX11 no
   ForwardAgent true
   DynamicForward 7777
-
-Host *.srv.external.nested.com
-  IdentityFile ~/.ssh/nextday.pem
-  ForwardAgent yes
-  User ubuntu
-
-Host *.srv.internal.nested.com
-  IdentityFile ~/.ssh/nextday.pem
-  ProxyCommand ssh ubuntu@dc1-core.srv.external.nested.com -W %h:%p
-  User ubuntu
-
-Host heroku.hubot
-  HostName heroku.com
-  IdentityFile ~/.ssh/identity.heroku.hubot
-  IdentitiesOnly yes
-
-Host heroku.bandiera
-  HostName heroku.com
-  IdentityFile ~/.ssh/identity.heroku.bandiera
-  IdentitiesOnly yes
