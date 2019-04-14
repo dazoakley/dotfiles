@@ -30,3 +30,5 @@
   program = /usr/local/MacGPG2/bin/gpg
 [commit]
   gpgsign = true
+[push]
+	default = simple
