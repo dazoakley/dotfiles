@@ -15,9 +15,6 @@
   ci = commit -S
   co = checkout
   br = branch
-[merge]
-  tool = smerge
-  summary = true
 [core]
   editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore
@@ -32,3 +29,6 @@
   gpgsign = true
 [push]
 	default = simple
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
