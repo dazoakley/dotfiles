@@ -49,4 +49,3 @@ end
 system 'mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}'
 system 'ln -s ~/.vim $XDG_CONFIG_HOME/nvim'
 system 'ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim'
-
