@@ -54,27 +54,28 @@ shopt -s histappend
 export PROMPT_COMMAND='history -a'
 
 ##
-## Integrate kube-ps1 into prompt
+## Integrate kube-ps1 and git into prompt
 ##
 
-kube_ps1_sh="$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
-if [ -f "$kube_ps1_sh" ]; then
+KUBE_PS1_SH="$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
+GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+
+if [ -f "$KUBE_PS1_SH"  ] && [ -f "$GIT_PROMPT_DIR/gitprompt.sh" ]; then
+  KUBE_PS1_PREFIX='['
+  KUBE_PS1_SUFFIX=']'
+   
   # shellcheck source=/dev/null
-  . "$kube_ps1_sh"
-  # PS1='[\u@\h \W $(kube_ps1)]\$ '
-  PS1='$(kube_ps1)'$PS1
-fi
+  . "$KUBE_PS1_SH"
 
-##
-## Integrate git into prompt...
-##
-
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
-  export __GIT_PROMPT_DIR
-  export GIT_PROMPT_THEME=Solarized
   # shellcheck source=/dev/null
-  . "$__GIT_PROMPT_DIR/gitprompt.sh"
+  . "$GIT_PROMPT_DIR/prompt-colors.sh"
+  
+  GIT_PROMPT_START='$(kube_ps1)\n'
+  GIT_PROMPT_START="${GIT_PROMPT_START}_LAST_COMMAND_INDICATOR_ ${Yellow}\w${ResetColor}"
+  GIT_PROMPT_THEME=Solarized
+
+  # shellcheck source=/dev/null
+  . "$GIT_PROMPT_DIR/gitprompt.sh"
 fi
 
 ##
