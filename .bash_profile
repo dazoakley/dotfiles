@@ -1,4 +1,42 @@
 ##
+## Editor settings
+##
+
+export EDITOR=/usr/local/bin/nvim
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
+
+##
+## Build Environment
+##
+
+case $(uname -s) in
+  Darwin)
+    export ARCHFLAGS='-arch x86_64'
+  ;;
+esac
+
+# /usr/local set-up
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH"
+export NODE_PATH="/usr/local/lib/node_modules"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# Extra path for misc scripts
+export PATH="$PATH:$HOME/Google Drive/bin:$HOME/bin:$HOME/projects/dotfiles/bin"
+
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN=05e96dd74d3bb400e43a800a376ee7a24171184f
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig:/usr/local/opt/sqlite/lib/pkgconfig"
+export XDG_CONFIG_HOME=$HOME/.config
+
+if [[ -d "$HOME/.asdf" ]]; then
+  # shellcheck source=/dev/null
+  . "$HOME/.asdf/asdf.sh"
+fi
+
+##
 ## Modify the bash history functions
 ##
 
@@ -16,12 +54,13 @@ shopt -s histappend
 export PROMPT_COMMAND='history -a'
 
 ##
-## Integrate SCM's into prompt...
+## Integrate git into prompt...
 ##
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
-  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+  GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  # shellcheck source=/dev/null
+  . "$GIT_PROMPT_DIR/gitprompt.sh"
 fi
 
 ##
@@ -30,15 +69,14 @@ fi
 
 export TERM=xterm-256color
 if [ "$TERM" != "dumb" ]; then
-  lscols=auto
   export LS_OPTIONS='--color=auto'
 
   case $(uname -s) in
     Darwin)
-      eval "`gdircolors -b $HOME/.dir_colors`"
+      eval "$(gdircolors -b "$HOME/.dir_colors")"
     ;;
     Linux)
-      eval "`dircolors -b $HOME/.dir_colors`"
+      eval "$(dircolors -b "$HOME/.dir_colors")"
     ;;
   esac
 fi
@@ -56,20 +94,10 @@ case $(uname -s) in
   ;;
 esac
 
-##
-## Other config files...
-##
-
-source "$HOME/.aliases"
-source "$HOME/.env_exports"
-
-if [ -e "$HOME/.bash_profile.local" ]; then
-  source "$HOME/.bash_profile.local"
-fi
-
 # Homebrew bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+  # shellcheck source=/dev/null
+  . "$(brew --prefix)/etc/bash_completion"
 fi
 
 # Github CLI (hub)
@@ -77,15 +105,32 @@ eval "$(hub alias -s)"
 
 # ASDF
 if [[ -d "$HOME/.asdf" ]]; then
-  . $HOME/.asdf/completions/asdf.bash
+  # shellcheck source=/dev/null
+  . "$HOME/.asdf/completions/asdf.bash"
 fi
 
 # gcloud
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+gcloud_loc="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+if [ -f "${gcloud_loc}/path.bash.inc" ]; then
+  # shellcheck source=/dev/null
+  . "${gcloud_loc}/path.bash.inc"
+  # shellcheck source=/dev/null
+  . "${gcloud_loc}/completion.bash.inc"
+fi
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 
-#source kubectl bash completion
+# kube
+export KUBECONFIG="${KUBECONFIG:-$HOME/.kube/config}"
 eval "$(kubectl completion bash)"
-
-#source minikube bash completion
 eval "$(minikube completion bash)"
+
+# gpg
+GPG_TTY="$(tty)"
+export GPG_TTY
+
+##
+## Other config files...
+##
+
+# shellcheck source=/dev/null
+. "$HOME/.aliases"
