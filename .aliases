@@ -139,3 +139,4 @@ function yaml_to_json() {
   ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load_file('${1}'))"
 }
 
+alias ack='rg'
