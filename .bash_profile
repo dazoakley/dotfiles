@@ -54,13 +54,27 @@ shopt -s histappend
 export PROMPT_COMMAND='history -a'
 
 ##
+## Integrate kube-ps1 into prompt
+##
+
+kube_ps1_sh="$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
+if [ -f "$kube_ps1_sh" ]; then
+  # shellcheck source=/dev/null
+  . "$kube_ps1_sh"
+  # PS1='[\u@\h \W $(kube_ps1)]\$ '
+  PS1='$(kube_ps1)'$PS1
+fi
+
+##
 ## Integrate git into prompt...
 ##
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  export __GIT_PROMPT_DIR
+  export GIT_PROMPT_THEME=Solarized
   # shellcheck source=/dev/null
-  . "$GIT_PROMPT_DIR/gitprompt.sh"
+  . "$__GIT_PROMPT_DIR/gitprompt.sh"
 fi
 
 ##
