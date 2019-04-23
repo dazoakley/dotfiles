@@ -115,8 +115,8 @@ if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
   . "$(brew --prefix)/etc/bash_completion"
 fi
 
-# Github CLI (hub)
-eval "$(hub alias -s)"
+# Github & Gitlab CLI (lab & hub)
+alias git=lab
 
 # ASDF
 if [[ -d "$HOME/.asdf" ]]; then
