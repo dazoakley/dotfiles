@@ -21,15 +21,8 @@ alias bu="bundle update"
 # Enable tap to click (Trackpad)
 alias enable-tap-to-click="defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true"
 
-# Undo a `git push`
-alias git-undopush="git push -f origin HEAD^:master"
-
-# Get a pretty git log
-alias git-log="git log --decorate --graph --oneline"
-
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
@@ -84,31 +77,10 @@ alias mysql-stop="mysql.server stop"
 alias postgres-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias postgres-stop="pg_ctl -D /usr/local/var/postgres stop"
 
-alias apache-start="sudo apachectl start"
-alias apache-stop="sudo apachectl stop"
-
-alias mongodb-start="sudo mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf"
-
-alias redis-start="launchctl load -w /usr/local/Cellar/redis/3.2.8/homebrew.mxcl.redis.plist"
-alias redis-stop="launchctl unload -w /usr/local/Cellar/redis/3.2.8/homebrew.mxcl.redis.plist"
-
-alias nginx-start="sudo /usr/local/opt/nginx/bin/nginx"
-alias nginx-stop="sudo /usr/local/opt/nginx/bin/nginx -s stop"
-alias nginx-reload="sudo /usr/local/opt/nginx/bin/nginx -s reload"
-
-alias memcached-start="launchctl load -w /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist"
-alias memcached-stop="launchctl unload -w /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist"
-
-##
-## Logs
-##
-
-alias tail-nginx-error="tail -f /usr/local/var/log/nginx-error.log"
-alias tail-nginx-acces="tail -f /usr/local/var/log/nginx-access.log"
-
 ##
 ## Docker
 ##
+
 alias docker-clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias docker-clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
 alias docker-rm-all-containers='docker rm -f $(docker ps -a -q)'
@@ -128,6 +100,9 @@ fi
 
 # GPG sign all commits in current branch
 alias git-sign-branch="git rebase --exec 'git commit --amend --no-edit -n -S' -i master"
+
+# Get a pretty git log
+alias git-log="git log --decorate --graph --oneline"
 
 ## YAML helpers
 

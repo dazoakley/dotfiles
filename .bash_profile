@@ -61,9 +61,6 @@ KUBE_PS1_SH="$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
 GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
 
 if [ -f "$KUBE_PS1_SH"  ] && [ -f "$GIT_PROMPT_DIR/gitprompt.sh" ]; then
-  KUBE_PS1_PREFIX='['
-  KUBE_PS1_SUFFIX=']'
-   
   # shellcheck source=/dev/null
   . "$KUBE_PS1_SH"
 
@@ -115,14 +112,15 @@ if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
   . "$(brew --prefix)/etc/bash_completion"
 fi
 
-# Github & Gitlab CLI (lab & hub)
-alias git=lab
-
 # ASDF
 if [[ -d "$HOME/.asdf" ]]; then
   # shellcheck source=/dev/null
   . "$HOME/.asdf/completions/asdf.bash"
 fi
+
+# Github & Gitlab CLI (lab & hub)
+alias git=lab
+eval "$(lab completion bash)"
 
 # gcloud
 gcloud_loc="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
