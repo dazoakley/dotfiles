@@ -1,3 +1,5 @@
+#! /bin/bash
+
 ##
 ## Editor settings
 ##
@@ -125,9 +127,8 @@ if [[ -d "$HOME/.asdf" ]]; then
   . "$HOME/.asdf/completions/asdf.bash"
 fi
 
-# Github & Gitlab CLI (lab & hub)
-alias git=lab
-eval "$(lab completion bash)"
+# Github CLI (hub)
+eval "$(hub alias -s)"
 
 # gcloud
 gcloud_loc="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
@@ -147,6 +148,12 @@ eval "$(minikube completion bash)"
 # gpg
 GPG_TTY="$(tty)"
 export GPG_TTY
+
+# python poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+eval "$(poetry completions bash)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ##
 ## Other config files...
