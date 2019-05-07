@@ -9,10 +9,15 @@ end_of_line = lf
 insert_final_newline = true
 
 # Language specific settings
-[*.{rb,jbs,py,yml,json}]
+[*.{rb,jbs,yml,json}]
 charset = utf-8
 indent_style = space
 indent_size = 2
+
+[*.{py}]
+charset = utf-8
+indent_style = space
+indent_size = 4
 
 # Tab indentation (no size specified)
 [Makefile]
