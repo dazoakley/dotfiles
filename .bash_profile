@@ -75,7 +75,7 @@ if [ -f "$KUBE_PS1_SH"  ] && [ -f "$GIT_PROMPT_DIR/gitprompt.sh" ]; then
 
   # shellcheck source=/dev/null
   . "$GIT_PROMPT_DIR/prompt-colors.sh"
-  
+
   GIT_PROMPT_START='$(kube_ps1)\n'
   GIT_PROMPT_START="${GIT_PROMPT_START}_LAST_COMMAND_INDICATOR_ ${Yellow}\w${ResetColor}"
   GIT_PROMPT_THEME=Solarized
@@ -118,13 +118,13 @@ esac
 # Homebrew bash completion
 if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
   # shellcheck source=/dev/null
-  . "$(brew --prefix)/etc/bash_completion"
+  source "$(brew --prefix)/etc/bash_completion"
 fi
 
 # ASDF
 if [[ -d "$HOME/.asdf" ]]; then
   # shellcheck source=/dev/null
-  . "$HOME/.asdf/completions/asdf.bash"
+  source "$HOME/.asdf/completions/asdf.bash"
 fi
 
 # Github CLI (hub)
@@ -134,9 +134,9 @@ eval "$(hub alias -s)"
 gcloud_loc="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
 if [ -f "${gcloud_loc}/path.bash.inc" ]; then
   # shellcheck source=/dev/null
-  . "${gcloud_loc}/path.bash.inc"
+  source "${gcloud_loc}/path.bash.inc"
   # shellcheck source=/dev/null
-  . "${gcloud_loc}/completion.bash.inc"
+  source "${gcloud_loc}/completion.bash.inc"
 fi
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
 
@@ -154,6 +154,11 @@ export PATH="$HOME/.poetry/bin:$PATH"
 eval "$(poetry completions bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# golang
+export GOPATH="$HOME/go"
+export PATH="$PATH:$(go env GOPATH)/bin"
+export GO111MODULE="on"
 
 ##
 ## Other config files...
