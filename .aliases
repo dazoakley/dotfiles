@@ -1,7 +1,15 @@
-# List only directories
-alias l='ls -lha'
-alias ll='ls -lh'
-alias lsd='ls -l | grep "^d"'
+case $(uname -s) in
+  Darwin)
+    alias ls='gls $LS_OPTIONS -hF'
+    alias ll='gls $LS_OPTIONS -lhF'
+    alias l='gls $LS_OPTIONS -lAhF'
+  ;;
+  Linux)
+    alias ls='ls $LS_OPTIONS -hF'
+    alias ll='ls $LS_OPTIONS -lhF'
+    alias l='ls $LS_OPTIONS -lAhF'
+  ;;
+esac
 
 alias cd..="cd .."
 alias c="clear"
