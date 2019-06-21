@@ -25,7 +25,7 @@ source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle <<EOBUNDLES
-    colored-man-pages   
+    colored-man-pages
     command-not-found
     common-aliases
     git
@@ -38,25 +38,34 @@ antigen bundle <<EOBUNDLES
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
-antigen theme sorin
-
 antigen apply
 
 source ~/.aliases
 source ~/.env_setup
 
-# kube
+##
+## my prompt theme...
+##
 
 KUBE_PS1_SH="$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
 if [ -f "$KUBE_PS1_SH"  ]; then
   . "$KUBE_PS1_SH"
   KUBE_PS1_SEPARATOR=':'
-  KUBE_PS1_PREFIX=''
-  KUBE_PS1_SUFFIX=''
+  KUBE_PS1_PREFIX='['
+  KUBE_PS1_SUFFIX=']'
 
-  # add to sorin theme
-  PROMPT='%{$fg[cyan]%}%c $(kube_ps1)$(git_prompt_info) %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
+  PROMPT=$'%{$fg[yellow]%}%~%{$reset_color%}$(git_prompt_info) $(kube_ps1)\
+%{$fg_bold[green]%}%D{%H:%M} %{$fg[blue]%}❯%{$reset_color%} '
+
+  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%} ["
+  ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
+  ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[green]%}"
+  ZSH_THEME_GIT_PROMPT_CLEAN=""
 fi
+
+##
+## Other stuff
+##
 
 eval "$(kubectl completion zsh)"
 eval "$(minikube completion zsh)"
