@@ -76,16 +76,6 @@ alias ssh-scicombinator="ssh dazoakley@scicombinator.com"
 alias ssh-hocuspokus="ssh admin@hocuspokus2.default.dazoakley.uk0.bigv.io"
 
 ##
-## Services
-##
-
-alias mysql-start="mysql.server start --bind-address=0.0.0.0"
-alias mysql-stop="mysql.server stop"
-
-alias postgres-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias postgres-stop="pg_ctl -D /usr/local/var/postgres stop"
-
-##
 ## Docker
 ##
 

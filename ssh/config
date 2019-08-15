@@ -2,6 +2,7 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
+  # IdentityFile ~/.ssh/id_ed25519
 
 Host hocuspokus.vm.bytemark.co.uk
   User admin
@@ -9,3 +10,9 @@ Host hocuspokus.vm.bytemark.co.uk
   ForwardX11 no
   ForwardAgent true
   DynamicForward 7777
+
+Host gitlab.com
+  Preferredauthentications publickey
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519

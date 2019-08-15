@@ -2,8 +2,9 @@
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTCONTROL=erasedups
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -24,19 +25,16 @@ source /usr/local/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
-antigen bundle <<EOBUNDLES
-    colored-man-pages
-    command-not-found
-    common-aliases
-    git
-    git-prompt
-    kube-ps1
-    osx
-    pip
-    zsh-users/zsh-autosuggestions
-    zsh-users/zsh-completions
-    zsh-users/zsh-syntax-highlighting
-EOBUNDLES
+antigen bundle colored-man-pages
+antigen bundle command-not-found
+antigen bundle common-aliases
+antigen bundle git
+antigen bundle kiurchv/asdf.plugin.zsh
+antigen bundle kube-ps1
+antigen bundle pip
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
