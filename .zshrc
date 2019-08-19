@@ -32,9 +32,7 @@ antigen bundle git
 antigen bundle kiurchv/asdf.plugin.zsh
 antigen bundle kube-ps1
 antigen bundle pip
-antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
