@@ -11,6 +11,13 @@ Host hocuspokus.vm.bytemark.co.uk
   ForwardAgent true
   DynamicForward 7777
 
+Host hocuspokus.net
+  User admin
+  Compression yes
+  ForwardX11 no
+  ForwardAgent true
+  DynamicForward 7777
+
 Host gitlab.com
   Preferredauthentications publickey
   AddKeysToAgent yes
