@@ -151,3 +151,5 @@ alias krmns='kubectl delete namespaces'
 
 alias kx='kubectx'
 alias kn='kubens'
+
+alias dadjoke='curl -H "Accept: text/plain" https://icanhazdadjoke.com/'

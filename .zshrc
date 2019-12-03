@@ -64,7 +64,6 @@ fi
 ##
 
 eval "$(kubectl completion zsh)"
-eval "$(minikube completion zsh)"
 
 # python poetry
 #eval "$(poetry completions zsh)"
