@@ -73,7 +73,7 @@ alias pumpitup="osascript -e 'set volume 10'"
 
 # SSH Aliases
 alias ssh-scicombinator="ssh dazoakley@scicombinator.com"
-alias ssh-hocuspokus="ssh admin@hocuspokus2.default.dazoakley.uk0.bigv.io"
+alias ssh-hocuspokus="ssh sympl@hocuspokus.vs.mythic-beasts.com"
 
 ##
 ## Docker
@@ -100,7 +100,7 @@ fi
 alias git-sign-branch="git rebase --exec 'git commit --amend --no-edit -n -S' -i master"
 
 # Get a pretty git log
-alias git-log="git log --decorate --graph --oneline"
+alias git-log="git log --decorate --graph --oneline --topo-order"
 
 ## YAML helpers
 
@@ -113,6 +113,10 @@ function yaml_to_json() {
 }
 
 alias ack='rg'
+
+export BAT_THEME="Solarized (light)"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias cat='bat'
 
 # kubectl
 
@@ -149,7 +153,7 @@ alias kgns='kubectl get namespaces'
 alias kdns='kubectl describe namespaces'
 alias krmns='kubectl delete namespaces'
 
-alias kx='kubectx'
-alias kn='kubens'
+alias kx='kubie ctx'
+alias kn='kubie ns'
 
 alias dadjoke='curl -H "Accept: text/plain" https://icanhazdadjoke.com/'
