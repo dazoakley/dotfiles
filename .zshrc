@@ -18,6 +18,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload -Uz bashcompinit
+bashcompinit
+
 ##
 ## Antigen - package manager (brew install antigen - https://github.com/zsh-users/antigen)
 ##

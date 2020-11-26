@@ -1,9 +1,7 @@
 [user]
   name = Darren Oakley
-  ; email = daz.oakley@gmail.com
-  ; signingkey = 45BBD89D
-  email = darren.oakley@johnlewis.co.uk
-  signingkey = 12DC9C54
+  email = daz.oakley@gmail.com
+  signingkey = 45BBD89D
 [credential]
   helper = osxkeychain
 [color]
@@ -34,3 +32,7 @@
 [mergetool "smerge"]
 	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 	trustExitCode = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
