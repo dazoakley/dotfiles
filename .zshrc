@@ -70,9 +70,11 @@ fi
 ##
 
 eval "$(kubectl completion zsh)"
+eval "$(direnv hook zsh)"
 
 # python poetry
 #eval "$(poetry completions zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

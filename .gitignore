@@ -32,3 +32,6 @@ Thumbs.db
 #####################
 *~
 *.swp
+
+# direnv directives
+.envrc

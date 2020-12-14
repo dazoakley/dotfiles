@@ -1,3 +1,7 @@
 Host *
   AddKeysToAgent yes
   UseKeychain yes
+
+Host tiny.lan
+  HostName tiny.lan
+  User daz
