@@ -33,5 +33,6 @@ Thumbs.db
 *~
 *.swp
 
-# direnv directives
+# Other stuff
 .envrc
+sshuttle.pid

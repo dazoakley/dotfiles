@@ -273,8 +273,8 @@ autocmd FileType nginx setlocal commentstring=#\ %s
 let g:ctrlp_custom_ignore = 'node_modules\|_build\|deps\|DS_Store\|git'
 
 " Python
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python2_host_prog = '/opt/homebrew/bin/python'
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " ###########################################################
 " CUSTOM MAPPINGS / COMMANDS

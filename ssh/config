@@ -1,7 +1,7 @@
 Host *
   AddKeysToAgent yes
   UseKeychain yes
+  IdentityFile ~/.ssh/id_edcsa
 
-Host tiny.lan
-  HostName tiny.lan
-  User daz
+Include ssh_config.d/*
+

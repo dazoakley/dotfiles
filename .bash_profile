@@ -9,8 +9,8 @@
 ## Bash completion
 ##
 
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+export BASH_COMPLETION_COMPAT_DIR="/opt/homebrew/etc/bash_completion.d"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 ##
 ## Modify the bash history functions
@@ -33,10 +33,10 @@ export PROMPT_COMMAND='history -a'
 ## Integrate kube-ps1 and git into prompt
 ##
 
-KUBE_PS1_SH="$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
-GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+KUBE_PS1_SH="/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+GIT_PROMPT_DIR=/opt/homebrew/opt/bash-git-prompt/share
 
-if [ -f "$KUBE_PS1_SH"  ] && [ -f "$GIT_PROMPT_DIR/gitprompt.sh" ]; then
+if [ -f "$KUBE_PS1_SH" ] && [ -f "$GIT_PROMPT_DIR/gitprompt.sh" ]; then
   # shellcheck source=/dev/null
   . "$KUBE_PS1_SH"
 
@@ -52,13 +52,13 @@ if [ -f "$KUBE_PS1_SH"  ] && [ -f "$GIT_PROMPT_DIR/gitprompt.sh" ]; then
 fi
 
 # Homebrew bash completion
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+if [ -f "/opt/homebrew/etc/bash_completion" ]; then
   # shellcheck source=/dev/null
-  source "$(brew --prefix)/etc/bash_completion"
+  source "/opt/homebrew/etc/bash_completion"
 fi
 
 # gcloud
-gcloud_loc="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+gcloud_loc="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
 if [ -f "${gcloud_loc}/path.bash.inc" ]; then
   # shellcheck source=/dev/null
   source "${gcloud_loc}/path.bash.inc"

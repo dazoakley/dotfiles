@@ -1,38 +1,37 @@
 [user]
-  name = Darren Oakley
-  email = daz.oakley@gmail.com
-  signingkey = 45BBD89D
+name = Darren Oakley
+email = daz.oakley@gmail.com
 [credential]
-  helper = osxkeychain
+helper = osxkeychain
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = true
+diff = auto
+status = auto
+branch = auto
+interactive = auto
+ui = true
 [alias]
-  st = status
-  ci = commit -S
-  co = checkout
-  br = branch
+st = status
+ci = commit -S
+co = checkout
+br = branch
 [core]
-  editor = /usr/local/bin/nvim
-  excludesfile = ~/.gitignore
-  pager = diff-so-fancy | less --tabs=4 -RFX
+editor = /opt/homebrew/bin/nvim
+excludesfile = ~/.gitignore
+pager = diff-so-fancy | less --tabs=4 -RFX
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
 [gpg]
-  program = /usr/local/MacGPG2/bin/gpg
+program = /usr/local/MacGPG2/bin/gpg
 [commit]
-  gpgsign = true
+gpgsign = true
 [push]
-	default = simple
+default = simple
 [mergetool "smerge"]
-	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
+cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+trustExitCode = true
 [pull]
-	rebase = true
+rebase = true
 [init]
-	defaultBranch = main
+defaultBranch = main
