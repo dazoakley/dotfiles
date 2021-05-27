@@ -49,14 +49,17 @@ source ~/.env_setup
 ## my prompt theme...
 ##
 
+HOSTNAME=$(hostname)
 KUBE_PS1_SH="/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+
 if [ -f "$KUBE_PS1_SH" ]; then
-  . "$KUBE_PS1_SH"
-  KUBE_PS1_SEPARATOR=':'
+  KUBE_PS1_SYMBOL_PADDING=false
+  KUBE_PS1_SEPARATOR=''
   KUBE_PS1_PREFIX='['
   KUBE_PS1_SUFFIX=']'
+  . "$KUBE_PS1_SH"
 
-  PROMPT=$'%{$fg[yellow]%}%~%{$reset_color%}$(git_prompt_info) $(kube_ps1)\
+  PROMPT=$'%{$fg_bold[green]%}$HOSTNAME%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}$(git_prompt_info) $(kube_ps1)\
 %{$fg_bold[green]%}%D{%H:%M} %{$fg[blue]%}❯%{$reset_color%} '
 
   ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%} ["
