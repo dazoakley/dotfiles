@@ -35,8 +35,8 @@ antigen bundle command-not-found
 antigen bundle common-aliases
 antigen bundle git
 antigen bundle johanhaleby/kubetail
-antigen bundle kiurchv/asdf.plugin.zsh
 antigen bundle kube-ps1
+antigen bundle kubectl
 antigen bundle pip
 antigen bundle zsh-users/zsh-completions
 
@@ -50,23 +50,19 @@ source ~/.env_setup
 ##
 
 HOSTNAME=$(hostname)
-KUBE_PS1_SH="/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 
-if [ -f "$KUBE_PS1_SH" ]; then
-  KUBE_PS1_SYMBOL_PADDING=false
-  KUBE_PS1_SEPARATOR=''
-  KUBE_PS1_PREFIX='['
-  KUBE_PS1_SUFFIX=']'
-  . "$KUBE_PS1_SH"
+KUBE_PS1_SYMBOL_PADDING=false
+KUBE_PS1_SEPARATOR=''
+KUBE_PS1_PREFIX='['
+KUBE_PS1_SUFFIX=']'
 
-  PROMPT=$'%{$fg_bold[green]%}$HOSTNAME%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}$(git_prompt_info) $(kube_ps1)\
+PROMPT=$'%{$fg_bold[green]%}$HOSTNAME%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}$(git_prompt_info) $(kube_ps1)\
 %{$fg_bold[green]%}%D{%H:%M} %{$fg[blue]%}❯%{$reset_color%} '
 
-  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%} ["
-  ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-  ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[green]%}"
-  ZSH_THEME_GIT_PROMPT_CLEAN=""
-fi
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%} ["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 ##
 ## Other stuff
@@ -77,8 +73,3 @@ eval "$(direnv hook zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)
