@@ -49,3 +49,7 @@ end
 system 'mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}'
 system 'ln -s ~/.vim $XDG_CONFIG_HOME/nvim'
 system 'ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim'
+
+# Setup homebrew symlink (so stuff works on M1 and x86 arch)
+
+system 'sudo ln -nfs /usr/local /opt/homebrew'
