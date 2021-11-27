@@ -1,14 +1,49 @@
 case $(uname -s) in
 Darwin)
-    alias ls='gls $LS_OPTIONS -hF'
-    alias ll='gls $LS_OPTIONS -lhF'
-    alias l='gls $LS_OPTIONS -lAhF'
-    ;;
+  alias ls='gls $LS_OPTIONS -hF'
+  alias ll='gls $LS_OPTIONS -lhF'
+  alias l='gls $LS_OPTIONS -lAhF'
+
+  # Flush Directory Service cache
+  alias flush="dscacheutil -flushcache"
+
+  # Empty the Trash on all mounted volumes and the main HDD
+  # Also, clear Apple’s System Logs to improve shell startup speed
+  alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+  # Show/hide hidden files in Finder
+  alias show-hidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+  alias hide-hidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+
+  # Hide/show all desktop icons (useful when presenting)
+  alias hide-desktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+  alias show-desktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+  # Enable/disable Spotlight
+  alias spot-off="sudo mdutil -a -i off"
+  alias spot-on="sudo mdutil -a -i on"
+
+  # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+  alias stfu="osascript -e 'set volume output muted true'"
+  alias pumpitup="osascript -e 'set volume 10'"
+
+  export BAT_THEME="Solarized (light)"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  alias cat='bat'
+  ;;
 Linux)
-    alias ls='ls $LS_OPTIONS -hF'
-    alias ll='ls $LS_OPTIONS -lhF'
-    alias l='ls $LS_OPTIONS -lAhF'
-    ;;
+  alias ls='ls $LS_OPTIONS -hF'
+  alias ll='ls $LS_OPTIONS -lhF'
+  alias l='ls $LS_OPTIONS -lAhF'
+
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+
+  export BAT_THEME="Monokai Extended Light"
+  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+  alias cat='batcat'
+
+  ;;
 esac
 
 alias cd..="cd .."
@@ -36,40 +71,17 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache"
-
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-# Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
-
-# Show/hide hidden files in Finder
-alias show-hidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
-alias hide-hidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
-
-# Hide/show all desktop icons (useful when presenting)
-alias hide-desktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias show-desktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# Enable/disable Spotlight
-alias spot-off="sudo mdutil -a -i off"
-alias spot-on="sudo mdutil -a -i on"
-
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-    alias "$method"="lwp-request -m '$method'"
+  alias "$method"="lwp-request -m '$method'"
 done
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 10'"
 
 # SSH Aliases
 alias ssh-scicombinator="ssh dazoakley@scicombinator.com"
@@ -89,7 +101,7 @@ alias docker-rm-all-images='docker rmi -f $(docker images -q)'
 ##
 
 if type nvim >/dev/null 2>&1; then
-    alias vim='nvim'
+  alias vim='nvim'
 fi
 
 ##
@@ -105,22 +117,18 @@ alias git-log="git log --decorate --graph --oneline --topo-order"
 ## YAML helpers
 
 function parse_yaml() {
-    ruby -ryaml -e "puts YAML.load_file('${1}').to_yaml"
+  ruby -ryaml -e "puts YAML.load_file('${1}').to_yaml"
 }
 
 function yaml_to_json() {
-    ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load_file('${1}'))"
+  ruby -ryaml -rjson -e "puts JSON.pretty_generate(YAML.load_file('${1}'))"
 }
 
 function json_to_yaml() {
-    ruby -ryaml -rjson -e "puts JSON.parse(File.read('${1}')).to_yaml"
+  ruby -ryaml -rjson -e "puts JSON.parse(File.read('${1}')).to_yaml"
 }
 
 alias ack='rg'
-
-export BAT_THEME="Solarized (light)"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias cat='bat'
 
 # kubectl
 

@@ -130,9 +130,6 @@ let g:airline_powerline_fonts = 1
 " Map F5 to bring up a list of open buffers
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
-set background=light
-colorscheme solarized
-
 set mouse=a                     " enable the mouse in xterm
 set history=1000                " how many lines of history to remember
 
