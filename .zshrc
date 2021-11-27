@@ -54,9 +54,9 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PATH="$PATH:$HOME/Google Drive/bin:$HOME/bin:$HOME/projects/dotfiles/bin"
 
 # Homebrew
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/sqlite/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/sqlite/include"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/zlib/lib/pkgconfig:/opt/homebrew/opt/sqlite/lib/pkgconfig"
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/sqlite/lib -L/opt/homebrew/opt/openssl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/sqlite/include -I/opt/homebrew/opt/openssl/include"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/zlib/lib/pkgconfig:/opt/homebrew/opt/sqlite/lib/pkgconfig:/opt/homebrew/opt/openssl/lib/pkgconfig"
 export XDG_CONFIG_HOME=$HOME/.config
 
 # ASDF
@@ -87,11 +87,11 @@ if [ "$TERM" != "dumb" ]; then
   export LS_OPTIONS='--color=auto'
 
   case $(uname -s) in
-    Darwin)
-      eval "$(gdircolors -b "$HOME/.dir_colors")"
+  Darwin)
+    eval "$(gdircolors -b "$HOME/.dir_colors")"
     ;;
-    Linux)
-      eval "$(dircolors -b "$HOME/.dir_colors")"
+  Linux)
+    eval "$(dircolors -b "$HOME/.dir_colors")"
     ;;
   esac
 fi
@@ -121,6 +121,7 @@ export GO111MODULE="on"
 
 eval "$(kubectl completion zsh)"
 eval "$(direnv hook zsh)"
+eval $(thefuck --alias)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -150,3 +151,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 if [ -f ~/.env_setup.local ]; then
   . ~/.env_setup.local
 fi
+
+# llvm 11 for crystal lang...
+export PATH="/usr/local/opt/llvm@11/bin:$PATH"
