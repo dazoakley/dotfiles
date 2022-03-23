@@ -91,6 +91,7 @@ alias ssh-hocuspokus="ssh sympl@hocuspokus.vs.mythic-beasts.com"
 ## Docker
 ##
 
+alias docker-compose='docker compose'
 alias docker-clean-images='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias docker-clean-containers='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
 alias docker-rm-all-containers='docker rm -f $(docker ps -a -q)'
