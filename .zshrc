@@ -1,3 +1,7 @@
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fig init zsh pre)"
+
 #! /opt/homebrew/bin/zsh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -8,10 +12,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 
 setopt rm_star_silent
 
@@ -37,16 +37,16 @@ Linux)
 esac
 
 # Load the oh-my-zsh's library
-#antigen use oh-my-zsh
+antigen use oh-my-zsh
 
 antigen bundle colored-man-pages
 antigen bundle command-not-found
 antigen bundle common-aliases
 antigen bundle git
 antigen bundle johanhaleby/kubetail
-#antigen bundle kube-ps1
-#antigen bundle kubectl
-#antigen bundle pip
+# antigen bundle kube-ps1
+antigen bundle kubectl
+# antigen bundle pip
 antigen bundle zsh-users/zsh-completions
 antigen bundle autojump
 antigen theme romkatv/powerlevel10k
@@ -184,10 +184,8 @@ if [ -f ~/.env_setup.local ]; then
   . ~/.env_setup.local
 fi
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"
