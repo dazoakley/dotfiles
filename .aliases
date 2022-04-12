@@ -138,3 +138,7 @@ alias kx='kubie ctx'
 alias kn='kubie ns'
 
 alias dadjoke='curl -H "Accept: text/plain" https://icanhazdadjoke.com/'
+
+## HMPPS
+
+alias ssh-ppud-data-transfer='aws ssm start-session --target $(aws ec2 describe-instances --profile ppud-modernisation-platform-developer --no-cli-pager --filters "Name=tag:Name,Values=data-transfer-ppud" "Name=instance-state-name,Values=running" | jq -r ".Reservations[0].Instances[0].InstanceId") --region eu-west-2 --profile ppud-modernisation-platform-developer'
