@@ -26,10 +26,6 @@ Darwin)
   # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
   alias stfu="osascript -e 'set volume output muted true'"
   alias pumpitup="osascript -e 'set volume 10'"
-
-  export BAT_THEME="Solarized (light)"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  alias cat='bat'
   ;;
 Linux)
   alias ls='ls $LS_OPTIONS -hF'
@@ -38,13 +34,13 @@ Linux)
 
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
-
-  export BAT_THEME="Monokai Extended Light"
-  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
-  alias cat='batcat'
-
   ;;
 esac
+
+export BAT_THEME="Solarized (light)"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias cat='bat'
+
 
 alias cd..="cd .."
 alias c="clear"

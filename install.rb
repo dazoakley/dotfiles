@@ -13,11 +13,11 @@ end
 
 # My SSH setup...
 
-sshdir        = "#{ENV['HOME']}/.ssh"
-shhdir_config = "#{sshdir}/config"
-system "mkdir #{sshdir}" unless File.directory?(sshdir)
-system "mv -f #{shhdir_config} #{shhdir_config}.bak" if File.exists?(shhdir_config)
-system "ln -sf #{pwd}/ssh/config #{shhdir_config}"
+# sshdir        = "#{ENV['HOME']}/.ssh"
+# shhdir_config = "#{sshdir}/config"
+# system "mkdir #{sshdir}" unless File.directory?(sshdir)
+# system "mv -f #{shhdir_config} #{shhdir_config}.bak" if File.exists?(shhdir_config)
+# system "ln -sf #{pwd}/ssh/config #{shhdir_config}"
 
 # My vim setup...
 #
@@ -52,4 +52,4 @@ system 'ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim'
 
 # Setup homebrew symlink (so stuff works on M1 and x86 arch)
 
-system 'sudo ln -nfs /usr/local /opt/homebrew'
+# system 'sudo ln -nfs /usr/local /opt/homebrew'

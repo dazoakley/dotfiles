@@ -62,7 +62,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'zerowidth/vim-copy-as-rtf'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -91,6 +91,11 @@ esac
 export PATH="$PATH:$HOME/bin:$HOME/src/github.com/dazoakley/dotfiles/bin"
 export XDG_CONFIG_HOME=$HOME/.config
 
+# Homebrew on Linux
+if [ -d "/home/linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # ASDF
 export ASDF_DIR=$HOME/.asdf
 if [ -d "$ASDF_DIR" ]; then
@@ -155,6 +160,10 @@ eval "$(kubectl completion zsh)"
 eval "$(direnv hook zsh)"
 eval $(thefuck --alias)
 
+if [ -d "$HOME/.poetry" ]; then
+  source $HOME/.poetry/env
+fi
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -187,6 +196,11 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Fig post block. Keep at the bottom of this file.
-eval "$(fig init zsh post)"
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+export KUBECONFIG=$(ls ~/.kube/*.yml | while read line
+do
+    echo -n ${line}:
+done
+)
 
