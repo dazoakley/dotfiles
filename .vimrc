@@ -281,3 +281,6 @@ let g:python3_host_prog = '/opt/homebrew/bin/python3'
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 command JsonTidy execute "%! jq ."
+
+" silence vim-go warnings
+let g:go_version_warning = 0

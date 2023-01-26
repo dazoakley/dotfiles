@@ -1,4 +1,4 @@
-#! /opt/homebrew/bin/zsh
+#! /usr/bin/env zsh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -93,6 +93,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # Homebrew on Linux
 if [ -d "/home/linuxbrew" ]; then
+  export HOMEBREW_NO_INSTALL_CLEANUP="1"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
@@ -167,9 +168,22 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# direnv
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+# kubectl config files
+export KUBECONFIG=$(ls ~/.kube/{*.y*ml,config} | while read line
+do
+    echo -n ${line}:
+done
+)
+
 ##
 ## my prompt theme...
 ##
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # HOSTNAME=$(hostname)
 
@@ -189,18 +203,7 @@ fi
 ##
 ## LOCAL ENV OVERRIDE (non-git hosted stuff)
 ##
+
 if [ -f ~/.env_setup.local ]; then
   . ~/.env_setup.local
 fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
-export KUBECONFIG=$(ls ~/.kube/*.yml | while read line
-do
-    echo -n ${line}:
-done
-)
-
