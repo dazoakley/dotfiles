@@ -4,4 +4,3 @@ Host *
   IdentityFile ~/.ssh/id_edcsa
 
 Include ssh_config.d/*
-
