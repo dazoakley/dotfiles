@@ -134,4 +134,11 @@ alias k='kubectl'
 alias kx='kubie ctx'
 alias kn='kubie ns'
 
+function decode_k8s_cert() {
+  namespace="${1}"
+  secret="${2}"
+  datakey="${3}"
+  kubectl get secret -n "${namespace}" "${secret}" -o yaml | yq -r ".data.\"${datakey}\"" | base64 -d | openssl x509 -text
+}
+
 alias dadjoke='curl -H "Accept: text/plain" https://icanhazdadjoke.com/'

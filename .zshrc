@@ -9,7 +9,7 @@ fi
 
 # Oh-My-Zsh cache dir - a lot of the plugins require this to be set.
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ohmyzsh"
-mkdir -p $ZSH_CACHE_DIR
+mkdir -p $ZSH_CACHE_DIR/completions
 
 setopt rm_star_silent
 
