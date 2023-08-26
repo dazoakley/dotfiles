@@ -70,7 +70,7 @@ export GIT_EDITOR=$EDITOR
 case $(uname -s) in
 Darwin)
   # /opt/homebrew set-up
-  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/share/npm/bin:$PATH"
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/opt/homebrew/share/npm/bin:$PATH"
   export NODE_PATH="/opt/homebrew/lib/node_modules"
   export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 
