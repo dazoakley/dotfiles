@@ -6,8 +6,9 @@ pwd = Dir.pwd
 
 Dir.glob('\.*').each do |source|
   next unless File.file?(source)
+
   target = "#{ENV['HOME']}/#{source}"
-  system "mv -f #{target} #{target}.bak" if File.exists?(target)
+  system "mv -f #{target} #{target}.bak" if File.exist?(target)
   system "ln -sf #{pwd}/#{source} #{target}"
 end
 
@@ -21,5 +22,5 @@ end
 
 # Setup NeoVim
 
-system 'mkdir -p $HOME/.config'
-system 'ln -nfs nvim $HOME/.config/nvim'
+system "mkdir -p #{ENV['HOME']}/.config"
+system "ln -nfs #{pwd}/nvim #{ENV['HOME']}/.config/nvim"
