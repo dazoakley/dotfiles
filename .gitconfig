@@ -1,8 +1,7 @@
 [user]
 name = Darren Oakley
-email = daz.oakley@gmail.com
-[credential]
-helper = osxkeychain
+email = darren.oakley@hmrc.gov.uk
+signingkey = D624F937CF3B8135
 [color]
 diff = auto
 status = auto
@@ -22,10 +21,8 @@ pager = diff-so-fancy | less --tabs=4 -RFX
 required = true
 clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
-[gpg]
-program = /usr/local/MacGPG2/bin/gpg
 [commit]
-gpgsign = true
+	gpgsign = true
 [push]
 default = simple
 [mergetool "smerge"]
@@ -35,3 +32,11 @@ trustExitCode = true
 rebase = true
 [init]
 defaultBranch = main
+[credential]
+	helper =
+	helper = /usr/local/bin/git-credential-manager-core
+	credentialStore = gpg
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[gpg]
+	program = gpg2

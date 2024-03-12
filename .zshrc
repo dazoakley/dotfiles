@@ -67,6 +67,15 @@ export GIT_EDITOR=$EDITOR
 ## Build Environment
 ##
 
+export PATH="$PATH:$HOME/bin:$HOME/src/github.com/dazoakley/dotfiles/bin"
+export XDG_CONFIG_HOME=$HOME/.config
+
+# Homebrew on Linux
+if [ -d "/home/linuxbrew" ]; then
+  export HOMEBREW_NO_INSTALL_CLEANUP="1"
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 case $(uname -s) in
 Darwin)
   # /opt/homebrew set-up
@@ -85,23 +94,23 @@ Darwin)
   # llvm 11 for crystal lang...
   export PATH="/usr/local/opt/llvm@11/bin:$PATH"
   ;;
-Linux) ;;
+Linux)
+  # # Homebrew libpq
+  # export PATH="$(brew --prefix libpq)/bin:$PATH"
+  # export PKG_CONFIG_PATH="$(brew --prefix libpq)/lib/pkgconfig"
+  
+  # export LDFLAGS="-Wl,-rpath,$(pkg-config --libs openssl libpq)"
+  # export CPPFLAGS="$(pkg-config --cflags  openssl libpq)"
+  # # export CONFIGURE_OPTS="-with-openssl=$(brew --prefix openssl)"
+  ;;
 esac
-
-export PATH="$PATH:$HOME/bin:$HOME/src/github.com/dazoakley/dotfiles/bin"
-export XDG_CONFIG_HOME=$HOME/.config
-
-# Homebrew on Linux
-if [ -d "/home/linuxbrew" ]; then
-  export HOMEBREW_NO_INSTALL_CLEANUP="1"
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
 
 # ASDF
 export ASDF_DIR=$HOME/.asdf
 if [ -d "$ASDF_DIR" ]; then
   . $HOME/.asdf/asdf.sh
   fpath=($ASDF_DIR/completions $fpath)
+  export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 fi
 
 autoload -Uz bashcompinit
@@ -207,3 +216,7 @@ done
 if [ -f ~/.env_setup.local ]; then
   . ~/.env_setup.local
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
