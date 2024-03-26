@@ -98,9 +98,7 @@ alias docker-rm-all-images='docker rmi -f $(docker images -q)'
 ## NeoVim
 ##
 
-if type nvim >/dev/null 2>&1; then
-  alias vim='nvim'
-fi
+# alias vim='nvim'
 
 ##
 ## Git

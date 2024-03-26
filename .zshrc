@@ -48,20 +48,10 @@ antigen bundle kubectl
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle autojump
+# antigen bundle autojump
 antigen theme romkatv/powerlevel10k
 
 antigen apply
-
-source ~/.aliases
-
-##
-## Editor settings
-##
-
-export EDITOR=$(which nvim)
-export SVN_EDITOR=$EDITOR
-export GIT_EDITOR=$EDITOR
 
 ##
 ## Build Environment
@@ -95,15 +85,19 @@ Darwin)
   export PATH="/usr/local/opt/llvm@11/bin:$PATH"
   ;;
 Linux)
-  # # Homebrew libpq
-  # export PATH="$(brew --prefix libpq)/bin:$PATH"
-  # export PKG_CONFIG_PATH="$(brew --prefix libpq)/lib/pkgconfig"
-  
-  # export LDFLAGS="-Wl,-rpath,$(pkg-config --libs openssl libpq)"
-  # export CPPFLAGS="$(pkg-config --cflags  openssl libpq)"
-  # # export CONFIGURE_OPTS="-with-openssl=$(brew --prefix openssl)"
+  # export LDFLAGS="-Wl,-rpath,$(pkg-config --libs openssl)"
+  # export CPPFLAGS="$(pkg-config --cflags  openssl)"
+  # export CONFIGURE_OPTS="-with-openssl=$(brew --prefix openssl)"
   ;;
 esac
+
+##
+## Editor settings
+##
+
+export EDITOR=$(which nvim)
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
 
 # ASDF
 export ASDF_DIR=$HOME/.asdf
@@ -161,6 +155,7 @@ export GO111MODULE="on"
 
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+[ -f /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh
 
 ##
 ## Other stuff
@@ -169,10 +164,6 @@ export GO111MODULE="on"
 eval "$(kubectl completion zsh)"
 eval "$(direnv hook zsh)"
 eval $(thefuck --alias)
-
-if [ -d "$HOME/.poetry" ]; then
-  source $HOME/.poetry/env
-fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -208,6 +199,8 @@ done
 # ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[green]%}"
 # ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+source ~/.aliases
 
 ##
 ## LOCAL ENV OVERRIDE (non-git hosted stuff)
