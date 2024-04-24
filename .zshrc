@@ -163,18 +163,14 @@ export GO111MODULE="on"
 
 eval "$(kubectl completion zsh)"
 eval "$(direnv hook zsh)"
-eval $(thefuck --alias)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# direnv
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
 # kubectl config files
 export KUBECONFIG=$(ls ~/.kube/{*.y*ml,config} | while read line
 do
-    echo -n ${line}:
+  echo -n ${line}:
 done
 )
 
@@ -205,7 +201,6 @@ source ~/.aliases
 ##
 ## LOCAL ENV OVERRIDE (non-git hosted stuff)
 ##
-
 if [ -f ~/.env_setup.local ]; then
   . ~/.env_setup.local
 fi
@@ -213,3 +208,4 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
