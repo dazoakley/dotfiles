@@ -2,11 +2,11 @@ kubectl 1.27.13
 helm 3.10.2
 terraform 1.7.4
 packer 1.8.1
-terragrunt 0.38.3
+terragrunt 0.67.16
 istioctl 1.16.0
 vault 1.15.6
 golang 1.22.2
 nodejs 16.20.2
 ruby 3.3.0
-python 3.11.9
+python 3.12.7
 rust 1.79.0
