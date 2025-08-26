@@ -1,6 +1,6 @@
-kubectl 1.27.13
+kubectl 1.31.6
 helm 3.10.2
-terraform 1.7.4
+terraform 1.11.2
 packer 1.8.1
 terragrunt 0.67.16
 istioctl 1.16.0
