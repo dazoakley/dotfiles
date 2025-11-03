@@ -163,6 +163,7 @@ export GO111MODULE="on"
 
 eval "$(kubectl completion zsh)"
 eval "$(direnv hook zsh)"
+eval "$(stern --completion zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

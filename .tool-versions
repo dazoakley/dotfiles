@@ -8,5 +8,5 @@ vault 1.15.6
 golang 1.22.2
 nodejs 16.20.2
 ruby 3.3.0
-python 3.12.7
+python 3.14.0
 rust 1.79.0
