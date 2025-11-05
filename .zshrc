@@ -30,7 +30,7 @@ Darwin)
   source "/opt/homebrew/share/antigen/antigen.zsh"
   ;;
 Linux)
-  source "${HOME}/.antigen/antigen.zsh"
+  source /home/linuxbrew/.linuxbrew/share/antigen/antigen.zsh
   ;;
 esac
 
@@ -95,6 +95,7 @@ esac
 ## Editor settings
 ##
 
+export LANG=en_GB.UTF-8
 export EDITOR=$(which nvim)
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
@@ -179,19 +180,21 @@ done
 ## my prompt theme...
 ##
 
+[ -f "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh" ] && source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # HOSTNAME=$(hostname)
-
+#
 # KUBE_PS1_SYMBOL_PADDING=false
 # KUBE_PS1_SEPARATOR=''
 # KUBE_PS1_PREFIX='['
 # KUBE_PS1_SUFFIX=']'
-
+#
 # PROMPT=$'%{$fg_bold[green]%}$HOSTNAME%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}$(git_prompt_info) $(kube_ps1)\
 # %{$fg_bold[green]%}%D{%H:%M} %{$fg[blue]%}❯%{$reset_color%} '
-
+#
 # ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%} ["
 # ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[green]%}"
@@ -209,4 +212,3 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-

@@ -357,9 +357,11 @@
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=3
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
+  typeset -g POWERLEVEL9K_VCS_FOREGROUND=231
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=231
 
   # Branch icon. Set this parameter to '\uF126 ' for the popular Powerline branch icon.
-  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
+  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
 
   # Untracked files icon. It's really a question mark, your font isn't broken.
   # Change the value of this parameter to show a different icon.
@@ -384,11 +386,16 @@
     fi
 
     # Styling for different parts of Git status.
-    local       meta='%7F' # white foreground
-    local      clean='%0F' # black foreground
-    local   modified='%0F' # black foreground
-    local  untracked='%0F' # black foreground
-    local conflicted='%1F' # red foreground
+    # local       meta='%7F' # white foreground
+    # local      clean='%0F' # black foreground
+    # local   modified='%0F' # black foreground
+    # local  untracked='%0F' # black foreground
+    # local conflicted='%1F' # red foreground
+    local       meta=''
+    local      clean=''
+    local   modified=''
+    local  untracked=''
+    local conflicted=''
 
     local res
 
